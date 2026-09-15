@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4ebdd" />
+  <meta name="description" content="URNINA Bakery — More Than Sweets. Handcrafted cakes and desserts in Karbala." />
+  <title>URNINA Bakery — More Than Sweets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Noto+Kufi+Arabic:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="URNINA Bakery home">
+      <span class="brand-mark">U</span>
+      <span><b>URNINA</b><small>BAKERY</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary">
+      <a href="#story" data-i18n="navStory">OUR STORY</a>
+      <a href="#creations" data-i18n="navCreations">CREATIONS</a>
+      <a href="#menu" data-i18n="navMenu">MENU</a>
+      <a href="#order" data-i18n="navOrder">ORDER</a>
+      <a href="#contact" data-i18n="navContact">CONTACT</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch" aria-label="Language">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="fa">فا</button>
+        <button data-lang="ar">عر</button>
+      </div>
+      <a class="pill" href="#order" data-i18n="orderNow">ORDER NOW</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-scroll" id="hero">
+      <div class="hero-sticky">
+        <div class="hero-layer hero-visual layer-1 active" style="background-image:url('assets/chocolate-cake.png')"></div>
+        <div class="hero-layer hero-visual layer-2" style="background-image:url('assets/pistachio-cake.png')"></div>
+        <div class="hero-layer hero-visual layer-3" style="background-image:url('assets/pastry-collection.png')"></div>
+        <div class="hero-shade"></div>
+        <div class="hero-copy">
+          <div class="eyebrow">URNINA BAKERY</div>
+          <h1 data-i18n="heroTitle">More Than Sweets.</h1>
+          <p data-i18n="heroSub">Made to be remembered.</p>
+          <a href="#creations" class="hero-link"><span data-i18n="discover">DISCOVER OUR CREATIONS</span><span>↘</span></a>
+        </div>
+        <div class="progress-rail" aria-hidden="true">
+          <span class="progress-fill"></span>
+          <div class="phase"><b>00</b><small data-i18n="phase0">INTRO</small></div>
+          <div class="phase"><b>01</b><small data-i18n="phase1">CRAFT</small></div>
+          <div class="phase"><b>02</b><small data-i18n="phase2">CREATION</small></div>
+          <div class="phase"><b>03</b><small data-i18n="phase3">SIGNATURE</small></div>
+        </div>
+        <div class="scroll-hint"><span data-i18n="scroll">SCROLL TO CREATE</span><i>↓</i></div>
+      </div>
+    </section>
+
+    <section class="signature-band">
+      <div>
+        <span class="eyebrow">URNINA SIGNATURE</span>
+        <h2 data-i18n="signature">Made to be remembered.</h2>
+      </div>
+      <div class="ingredients"><span>VANILLA</span><span>SPONGE</span><span>CREAM</span><span>STRAWBERRY</span></div>
+    </section>
+
+    <section id="creations" class="section creations">
+      <div class="section-head">
+        <div><span class="eyebrow" data-i18n="handcrafted">HANDCRAFTED IN KARBALA</span><h2 data-i18n="creationsTitle">Sweet things, beautifully made.</h2></div>
+        <p data-i18n="creationsIntro">Handcrafted cakes and desserts, composed for quiet pleasures and unforgettable celebrations.</p>
+      </div>
+
+      <article class="product-card">
+        <div class="product-image"><img src="assets/pastry-collection.png" alt="URNINA artisan pastry collection" loading="lazy"></div>
+        <div class="product-copy"><span class="count">01</span><span class="eyebrow" data-i18n="p1Tag">LITTLE BITES · BIG JOY</span><h3 data-i18n="p1Name">Berry Crepe Gift</h3><p data-i18n="p1Desc">A hand-tied strawberry crepe dessert made for gifting, sharing, and small celebrations.</p><dl><dt data-i18n="ingredients">INGREDIENTS</dt><dd data-i18n="p1Ingredients">Strawberry crepe · Vanilla cream · Fresh strawberry</dd><dt data-i18n="options">SIZES / OPTIONS</dt><dd data-i18n="customRequest">To be confirmed · Custom request</dd><dt data-i18n="price">PRICE</dt><dd data-i18n="priceRequest">Price on request</dd></dl><a href="#order" class="text-link" data-product="Berry Crepe Gift" data-i18n="orderProduct">ORDER THIS PRODUCT →</a></div>
+      </article>
+
+      <article class="product-card reverse">
+        <div class="product-image"><img src="assets/chocolate-cake.png" alt="URNINA signature cake" loading="lazy"></div>
+        <div class="product-copy"><span class="count">02</span><span class="eyebrow" data-i18n="p2Tag">MORE THAN SWEETS</span><h3 data-i18n="p2Name">Walnut Cake</h3><p data-i18n="p2Desc">A warm, softly baked cake finished with a generous layer of chopped walnuts.</p><dl><dt data-i18n="ingredients">INGREDIENTS</dt><dd data-i18n="p2Ingredients">Soft cake · Walnut · Caramelized nut topping</dd><dt data-i18n="options">SIZES / OPTIONS</dt><dd data-i18n="customRequest">To be confirmed · Custom request</dd><dt data-i18n="price">PRICE</dt><dd data-i18n="priceRequest">Price on request</dd></dl><a href="#order" class="text-link" data-product="Walnut Cake" data-i18n="orderProduct">ORDER THIS PRODUCT →</a></div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-image"><img src="assets/pistachio-cake.png" alt="URNINA pistachio cake" loading="lazy"></div>
+        <div class="product-copy"><span class="count">03</span><span class="eyebrow" data-i18n="p3Tag">TRADITIONAL FLAVORS · MODERN MOMENTS</span><h3 data-i18n="p3Name">Traditional Tartlets</h3><p data-i18n="p3Desc">Delicate individual tartlets with a traditional filling and pistachio finish.</p><dl><dt data-i18n="ingredients">INGREDIENTS</dt><dd data-i18n="p3Ingredients">Crisp tart shell · Traditional filling · Pistachio</dd><dt data-i18n="options">SIZES / OPTIONS</dt><dd data-i18n="customRequest">To be confirmed · Custom request</dd><dt data-i18n="price">PRICE</dt><dd data-i18n="priceRequest">Price on request</dd></dl><a href="#order" class="text-link" data-product="Traditional Tartlets" data-i18n="orderProduct">ORDER THIS PRODUCT →</a></div>
+      </article>
+    </section>
+
+    <section id="story" class="story section-dark">
+      <div class="story-index">01 — 03</div>
+      <div class="story-copy"><span class="eyebrow" data-i18n="ourStory">OUR STORY</span><h2 data-i18n="storyTitle">Born from simple ingredients.<br>Created for special moments.</h2><p data-i18n="storyBody">URNINA is a modern artisan bakery shaped around the pleasure of making something slowly, thoughtfully, and by hand. Our final story will live here—told through ingredients, craft, and the moments each creation becomes part of.</p></div>
+    </section>
+
+    <section id="menu" class="section menu-section">
+      <div class="section-head"><div><span class="eyebrow" data-i18n="menuEyebrow">THE MENU</span><h2 data-i18n="menuTitle">A considered collection.</h2></div><p data-i18n="menuIntro">Every item is made to order. Final pricing and availability will be confirmed personally.</p></div>
+      <div class="menu-list">
+        <div class="menu-row"><span>01</span><strong data-i18n="p1Name">Berry Crepe Gift</strong><p data-i18n="p1Desc">A hand-tied strawberry crepe dessert made for gifting, sharing, and small celebrations.</p><b data-i18n="priceRequest">PRICE ON REQUEST</b></div>
+        <div class="menu-row"><span>02</span><strong data-i18n="p2Name">Walnut Cake</strong><p data-i18n="p2Desc">A warm, softly baked cake finished with a generous layer of chopped walnuts.</p><b data-i18n="priceRequest">PRICE ON REQUEST</b></div>
+        <div class="menu-row"><span>03</span><strong data-i18n="p3Name">Traditional Tartlets</strong><p data-i18n="p3Desc">Delicate individual tartlets with a traditional filling and pistachio finish.</p><b data-i18n="priceRequest">PRICE ON REQUEST</b></div>
+      </div>
+    </section>
+
+    <section id="order" class="order-section section-dark">
+      <div class="order-intro"><span class="eyebrow" data-i18n="yourOrder">YOUR ORDER</span><h2 data-i18n="orderTitle">Made for your moment.</h2><p data-i18n="orderIntro">Choose the essentials and prepare your request. Final availability, price, and delivery details will be confirmed personally.</p></div>
+      <form id="orderForm" class="order-form">
+        <label><span data-i18n="chooseProduct">CHOOSE PRODUCT</span><select id="product"><option value="" data-i18n="choose">Choose</option><option>Berry Crepe Gift</option><option>Walnut Cake</option><option>Traditional Tartlets</option></select></label>
+        <label><span data-i18n="quantity">QUANTITY</span><input id="quantity" type="number" min="1" value="1"></label>
+        <label><span data-i18n="size">SIZE / OPTION</span><input id="size" type="text" data-i18n-placeholder="choose" placeholder="Choose"></label>
+        <label><span data-i18n="delivery">DELIVERY OR PICKUP</span><select id="delivery"><option value="" data-i18n="choose">Choose</option><option value="Delivery">Delivery</option><option value="Pickup">Pickup</option></select></label>
+        <label><span data-i18n="date">PREFERRED DATE</span><input id="date" type="date"></label>
+        <label><span data-i18n="name">CUSTOMER NAME</span><input id="name" type="text" data-i18n-placeholder="name" placeholder="Customer name"></label>
+        <label><span data-i18n="phone">PHONE NUMBER</span><input id="phone" type="tel" data-i18n-placeholder="phone" placeholder="Phone number"></label>
+        <label class="wide"><span data-i18n="notes">SPECIAL MESSAGE / NOTES</span><textarea id="notes" rows="4" data-i18n-placeholder="notes" placeholder="Special message / notes"></textarea></label>
+        <button class="submit" type="submit" data-i18n="whatsapp">ORDER VIA WHATSAPP</button>
+      </form>
+    </section>
+
+    <section class="closing-visual"><img src="assets/urnina-storyboard.png" alt="URNINA visual story" loading="lazy"><div><span class="eyebrow" data-i18n="moments">FOR THE MOMENTS THAT MATTER</span><h2 data-i18n="heroTitle">More Than Sweets.</h2></div></section>
+
+    <section id="contact" class="contact section">
+      <div><span class="eyebrow" data-i18n="contact">CONTACT</span><h2 data-i18n="contactTitle">LET’S MAKE SOMETHING MEMORABLE.</h2></div>
+      <div class="contact-grid"><div><span data-i18n="location">LOCATION</span><b>Karbala, Iraq</b></div><div><span>WHATSAPP</span><b data-i18n="toAdd">To be added</b></div><div><span data-i18n="phoneLabel">PHONE</span><b data-i18n="toAdd">To be added</b></div><div><span>INSTAGRAM</span><b data-i18n="toAdd">To be added</b></div><div><span data-i18n="hours">BUSINESS HOURS</span><b data-i18n="toConfirm">To be confirmed</b></div></div>
+    </section>
+  </main>
+
+  <footer><div><b>URNINA BAKERY</b><span data-i18n="footerTag">Handcrafted cakes and desserts in Karbala.</span></div><div>© 2026 URNINA BAKERY</div><a href="#top" data-i18n="backTop">BACK TO TOP ↑</a></footer>
+  <script src="app.js"></script>
+</body>
+</html>
