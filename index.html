@@ -3,137 +3,131 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#2b1a13" />
-  <title>URNINA Bakery — More Than Sweets</title>
-  <meta name="description" content="URNINA Bakery — handcrafted cakes, crepes and desserts made to order in Karbala, Iraq. Order via WhatsApp." />
+  <meta name="theme-color" content="#F2DCD8" />
+  <title>Urnina — More than sweets</title>
+  <meta name="description" content="Urnina — cakes, crepes and tartlets made by hand in Karbala, to order. Order on WhatsApp." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="URNINA Bakery — More Than Sweets" />
-  <meta property="og:description" content="Handcrafted cakes, crepes and desserts made to order in Karbala." />
-  <meta property="og:image" content="assets/mango-cheesecake.webp" />
+  <meta property="og:title" content="Urnina — More than sweets" />
+  <meta property="og:description" content="Cakes, crepes and tartlets made by hand in Karbala, to order." />
+  <meta property="og:image" content="assets/carrot-cake-photo.webp" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' fill='%232b1a13'/%3E%3Ccircle cx='32' cy='32' r='26' fill='none' stroke='%23a77a43' stroke-width='1.5'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='30' fill='%23f4ebdd'%3EU%3C/text%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Noto+Kufi+Arabic:wght@300;400;500;600&family=Vazirmatn:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M10 60V30a22 22 0 0 1 44 0v30z' fill='%233B1F17'/%3E%3Cpath d='M18 60V31a14 14 0 0 1 28 0v29z' fill='%23F2DCD8'/%3E%3C/svg%3E" />
+  <link rel="preload" href="assets/fonts/lalezar-arabic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Bakery","name":"URNINA Bakery","description":"Handcrafted cakes, crepes and desserts made to order.","address":{"@type":"PostalAddress","addressLocality":"Karbala","addressCountry":"IQ"},"servesCuisine":"Desserts"}
+  {"@context":"https://schema.org","@type":"Bakery","name":"Urnina","description":"Cakes, crepes and tartlets made by hand, to order.","address":{"@type":"PostalAddress","addressLocality":"Karbala","addressCountry":"IQ"},"servesCuisine":"Desserts"}
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#creations" data-i18n="skip">Skip to products</a>
+  <a class="skip-link" href="#sweets" data-i18n="skip">Skip to the sweets</a>
 
-  <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="URNINA Bakery">
-      <span class="brand-mark" aria-hidden="true">U</span>
-      <span class="brand-word"><b>URNINA</b><small>BAKERY</small></span>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Urnina">
+      <svg class="brand-arch" viewBox="0 0 40 48" aria-hidden="true"><path d="M3 47V20a17 17 0 0 1 34 0v27"/></svg>
+      <span class="brand-name" data-i18n="brand">Urnina</span>
     </a>
     <nav class="primary-nav" id="primaryNav" aria-label="Primary">
-      <a href="#creations" data-i18n="navCreations">CREATIONS</a>
-      <a href="#story" data-i18n="navStory">OUR STORY</a>
-      <a href="#menu" data-i18n="navMenu">MENU</a>
-      <a href="#order" data-i18n="navOrder">ORDER</a>
-      <a href="#contact" data-i18n="navContact">CONTACT</a>
+      <a href="#sweets" data-i18n="navSweets">Our sweets</a>
+      <a href="#how" data-i18n="navHow">How to order</a>
+      <a href="#story" data-i18n="navStory">Our story</a>
+      <a href="#contact" data-i18n="navContact">Contact</a>
     </nav>
     <div class="header-actions">
       <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="ar" lang="ar">عربي</button>
+        <button type="button" data-lang="fa" lang="fa">فارسی</button>
         <button type="button" data-lang="en" lang="en">EN</button>
-        <button type="button" data-lang="fa" lang="fa">فا</button>
-        <button type="button" data-lang="ar" lang="ar">عر</button>
       </div>
-      <a class="pill" href="#order" data-i18n="orderNow">ORDER NOW</a>
+      <a class="btn btn-small header-order" href="#order" data-i18n="orderNow">Order</a>
       <button class="menu-toggle" type="button" aria-controls="primaryNav" aria-expanded="false">
         <span class="sr-only" data-i18n="menuToggle">Menu</span><i></i><i></i>
       </button>
     </div>
   </header>
 
-  <main>
-    <!-- HERO: still design until frames are set in config.js, then a scroll-driven frame animation -->
-    <section class="hero-scroll is-static" id="hero">
-      <div class="hero-sticky">
-        <div class="hero-art" aria-hidden="true"><span class="hero-monogram">U</span><span class="hero-glow"></span></div>
-        <canvas class="hero-canvas" aria-hidden="true"></canvas>
-        <div class="hero-shade" aria-hidden="true"></div>
+  <main id="top">
+    <!-- Hero. Without animation frames: a still arch with a photo.
+         With frames (config.js): the arch grows to fill the screen as you scroll and the frames play. -->
+    <section class="hero" id="hero">
+      <div class="hero-stage">
         <div class="hero-copy">
-          <div class="eyebrow">URNINA BAKERY</div>
-          <h1 data-i18n="heroTitle">More Than Sweets.</h1>
-          <p data-i18n="heroSub">Made to be remembered.</p>
-          <a href="#creations" class="hero-link"><span data-i18n="discover">DISCOVER OUR CREATIONS</span><span class="arrow" aria-hidden="true">↓</span></a>
+          <h1 data-i18n="heroTitle">More than sweets.</h1>
+          <p class="hero-sub" data-i18n="heroSub">Cakes, crepes and tartlets made by hand in Karbala, baked to order for your day.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#order" data-i18n="heroOrder">Order on WhatsApp</a>
+            <a class="link" href="#sweets" data-i18n="heroSee">See the sweets</a>
+          </div>
         </div>
-        <div class="progress-rail" aria-hidden="true">
-          <span class="progress-fill"></span>
-          <ol>
-            <li class="phase" data-phase="0"><b>00</b><small data-i18n="phase0">INTRO</small></li>
-            <li class="phase" data-phase="1"><b>01</b><small data-i18n="phase1">CRAFT</small></li>
-            <li class="phase" data-phase="2"><b>02</b><small data-i18n="phase2">CREATION</small></li>
-            <li class="phase" data-phase="3"><b>03</b><small data-i18n="phase3">SIGNATURE</small></li>
-          </ol>
+        <figure class="hero-arch arch">
+          <img src="assets/carrot-cake-photo.webp" alt="" data-i18n-alt="heroAlt" width="615" height="563" fetchpriority="high">
+        </figure>
+        <canvas class="hero-canvas" aria-hidden="true"></canvas>
+      </div>
+    </section>
+
+    <section class="sweets" id="sweets" aria-labelledby="sweetsTitle">
+      <div class="section-intro">
+        <h2 id="sweetsTitle" data-i18n="sweetsTitle">Our sweets</h2>
+        <p data-i18n="sweetsIntro">Everything is made to order in small batches. Pick what you like and we’ll confirm price and timing on WhatsApp.</p>
+      </div>
+      <ul class="sweet-grid" id="productList"></ul>
+    </section>
+
+    <section class="how" id="how" aria-labelledby="howTitle">
+      <h2 id="howTitle" data-i18n="howTitle">How ordering works</h2>
+      <ol class="steps">
+        <li><span class="step-n" aria-hidden="true"></span><h3 data-i18n="step1Title">Choose your sweets</h3><p data-i18n="step1Body">Fill in the short form below: what, how many, and the day you need it.</p></li>
+        <li><span class="step-n" aria-hidden="true"></span><h3 data-i18n="step2Title">Send it on WhatsApp</h3><p data-i18n="step2Body">The form writes the message for you. Just press send.</p></li>
+        <li><span class="step-n" aria-hidden="true"></span><h3 data-i18n="step3Title">We confirm and bake</h3><p data-i18n="step3Body">We reply with the price and timing, then bake it fresh for pickup or delivery.</p></li>
+      </ol>
+    </section>
+
+    <section class="order" id="order" aria-labelledby="orderTitle">
+      <div class="order-card">
+        <div class="order-head">
+          <h2 id="orderTitle" data-i18n="orderTitle">Your order</h2>
+          <p data-i18n="orderIntro">Only the starred fields are needed. Everything else helps us get it right.</p>
         </div>
-        <div class="scroll-hint"><span data-i18n="scroll">SCROLL TO CREATE</span><i aria-hidden="true">↓</i></div>
+        <form id="orderForm" class="order-form" novalidate>
+          <label class="field"><span><span data-i18n="chooseProduct">Sweet</span> <b aria-hidden="true">*</b></span><select id="product" name="product" required></select></label>
+          <label class="field"><span><span data-i18n="quantity">How many</span> <b aria-hidden="true">*</b></span><input id="quantity" name="quantity" type="number" min="1" max="99" step="1" value="1" inputmode="numeric" required></label>
+          <label class="field"><span data-i18n="size">Size or option</span><input id="size" name="size" type="text" maxlength="80" data-i18n-placeholder="sizeHint"></label>
+          <label class="field"><span data-i18n="date">Day you need it</span><input id="date" name="date" type="date"></label>
+          <fieldset class="field wide choice">
+            <legend data-i18n="delivery">Pickup or delivery</legend>
+            <label><input type="radio" name="delivery" value="pickup"><span data-i18n="optPickup">I’ll pick it up</span></label>
+            <label><input type="radio" name="delivery" value="delivery"><span data-i18n="optDelivery">Deliver it to me</span></label>
+          </fieldset>
+          <label class="field"><span><span data-i18n="name">Your name</span> <b aria-hidden="true">*</b></span><input id="name" name="name" type="text" maxlength="60" autocomplete="name" required></label>
+          <label class="field"><span><span data-i18n="phone">Phone number</span> <b aria-hidden="true">*</b></span><input id="phone" name="phone" type="tel" maxlength="20" autocomplete="tel" inputmode="tel" required dir="ltr" placeholder="07xx xxx xxxx"></label>
+          <label class="field wide"><span data-i18n="notes">Anything else?</span><textarea id="notes" name="notes" rows="3" maxlength="500" data-i18n-placeholder="notesPh"></textarea></label>
+          <p class="form-status wide" id="formStatus" role="status" aria-live="polite"></p>
+          <button class="btn btn-wide" type="submit"><span class="wa-icon" aria-hidden="true"></span><span data-i18n="whatsapp">Send order on WhatsApp</span></button>
+        </form>
       </div>
     </section>
 
-    <section class="signature-band">
-      <div>
-        <span class="eyebrow" data-i18n="signatureEyebrow">URNINA SIGNATURE</span>
-        <h2 data-i18n="signature">Made to be remembered.</h2>
+    <section class="story" id="story" aria-labelledby="storyTitle">
+      <div class="story-arch arch" aria-hidden="true"><span data-i18n="brand">Urnina</span></div>
+      <div class="story-copy">
+        <h2 id="storyTitle" data-i18n="storyTitle">Baked by hand, one order at a time</h2>
+        <p data-i18n="storyBody"></p>
       </div>
-      <ul class="ingredients" data-i18n-list="signatureIngredients"></ul>
     </section>
 
-    <section id="creations" class="section creations">
-      <div class="section-head">
-        <div><span class="eyebrow" data-i18n="handcrafted">HANDCRAFTED IN KARBALA</span><h2 data-i18n="creationsTitle">Sweet things, beautifully made.</h2></div>
-        <p data-i18n="creationsIntro">Handcrafted cakes and desserts, composed for quiet pleasures and unforgettable celebrations.</p>
-      </div>
-      <div id="productList"></div>
-    </section>
-
-    <section id="story" class="story section-dark">
-      <div class="story-mark" aria-hidden="true">U</div>
-      <div class="story-copy"><span class="eyebrow" data-i18n="ourStory">OUR STORY</span><h2 data-i18n="storyTitle">Born from simple ingredients. Created for special moments.</h2><p data-i18n="storyBody"></p></div>
-    </section>
-
-    <section id="menu" class="section menu-section">
-      <div class="section-head"><div><span class="eyebrow" data-i18n="menuEyebrow">THE MENU</span><h2 data-i18n="menuTitle">A considered collection.</h2></div><p data-i18n="menuIntro">Every item is made to order.</p></div>
-      <div class="menu-list" id="menuList"></div>
-    </section>
-
-    <section id="order" class="order-section section-dark">
-      <div class="order-intro"><span class="eyebrow" data-i18n="yourOrder">YOUR ORDER</span><h2 data-i18n="orderTitle">Made for your moment.</h2><p data-i18n="orderIntro"></p></div>
-      <form id="orderForm" class="order-form" novalidate>
-        <label><span data-i18n="chooseProduct">CHOOSE PRODUCT</span><select id="product" name="product" required></select></label>
-        <label><span data-i18n="quantity">QUANTITY</span><input id="quantity" name="quantity" type="number" min="1" max="99" step="1" value="1" inputmode="numeric" required></label>
-        <label><span data-i18n="size">SIZE / OPTION</span><input id="size" name="size" type="text" maxlength="80" data-i18n-placeholder="sizeHint"></label>
-        <label><span data-i18n="delivery">DELIVERY OR PICKUP</span><select id="delivery" name="delivery"><option value="" data-i18n="choose">Choose</option><option value="delivery" data-i18n="optDelivery">Delivery</option><option value="pickup" data-i18n="optPickup">Pickup</option></select></label>
-        <label><span data-i18n="date">PREFERRED DATE</span><input id="date" name="date" type="date"></label>
-        <label><span data-i18n="name">CUSTOMER NAME</span><input id="name" name="name" type="text" maxlength="60" autocomplete="name" required data-i18n-placeholder="namePh"></label>
-        <label><span data-i18n="phone">PHONE NUMBER</span><input id="phone" name="phone" type="tel" maxlength="20" autocomplete="tel" inputmode="tel" required dir="ltr" data-i18n-placeholder="phonePh"></label>
-        <label class="wide"><span data-i18n="notes">SPECIAL MESSAGE / NOTES</span><textarea id="notes" name="notes" rows="4" maxlength="500" data-i18n-placeholder="notesPh"></textarea></label>
-        <p class="form-status wide" id="formStatus" role="status" aria-live="polite"></p>
-        <button class="submit" type="submit"><span class="wa-icon" aria-hidden="true"></span><span data-i18n="whatsapp">ORDER VIA WHATSAPP</span></button>
-      </form>
-    </section>
-
-    <section class="closing-visual">
-      <div class="closing-art" aria-hidden="true"></div>
-      <div class="closing-copy"><span class="eyebrow" data-i18n="moments">FOR THE MOMENTS THAT MATTER</span><h2 data-i18n="heroTitle">More Than Sweets.</h2></div>
-    </section>
-
-    <section id="contact" class="contact section">
-      <div><span class="eyebrow" data-i18n="contact">CONTACT</span><h2 data-i18n="contactTitle">LET’S MAKE SOMETHING MEMORABLE.</h2></div>
-      <div class="contact-grid" id="contactGrid"></div>
+    <section class="contact" id="contact" aria-labelledby="contactTitle">
+      <h2 id="contactTitle" data-i18n="contactTitle">Find us</h2>
+      <dl class="contact-list" id="contactGrid"></dl>
     </section>
   </main>
 
-  <footer>
-    <div><b>URNINA BAKERY</b><span data-i18n="footerTag">Handcrafted cakes and desserts in Karbala.</span></div>
-    <div>© <span id="year">2026</span> URNINA BAKERY</div>
-    <a href="#top" data-i18n="backTop">BACK TO TOP ↑</a>
+  <footer class="site-footer">
+    <span class="footer-brand" data-i18n="brand">Urnina</span>
+    <span data-i18n="footerTag">Handmade sweets from Karbala.</span>
+    <span>© <span id="year">2026</span></span>
   </footer>
 
-  <a class="wa-float" id="waFloat" hidden target="_blank" rel="noopener" aria-label="WhatsApp"><span class="wa-icon" aria-hidden="true"></span></a>
+  <a class="wa-float" id="waFloat" hidden target="_blank" rel="noopener" data-i18n-aria="waFloat" aria-label="WhatsApp"><span class="wa-icon" aria-hidden="true"></span></a>
 
   <script src="config.js"></script>
   <script src="products.js"></script>

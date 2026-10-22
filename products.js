@@ -1,13 +1,12 @@
 /* ==========================================================
    URNINA — products
-   One entry per product. Creations, Menu and the order form are all
+   One entry per product. The sweets grid and the order form are both
    built from this list, so add / edit / remove products only here.
 
-   image: path to a photo (at least 1200px wide, no text on the photo),
+   image: path to a photo (portrait 4:5, at least 1000x1250px, no text on the photo),
           or null to show the designed placeholder until a photo exists.
    price: number in IQD (e.g. 25000) to show "from 25,000 IQD",
           or null to show "Price on request".
-   ratio: optional photo shape, e.g. '16 / 9' (default 4 / 3).
    tone:  placeholder colour — berry, walnut, pistachio, mango, banana,
           coffee, cream, carrot.
    ========================================================== */
@@ -85,7 +84,7 @@ window.URNINA_PRODUCTS = [
           ingredients: 'كريب قهوة · كريمة · كاكاو · قهوة' }
   },
   {
-    id: 'mango-cheesecake', image: 'assets/mango-cheesecake.webp', ratio: '25 / 9', price: null, tone: 'mango',
+    id: 'mango-cheesecake', image: 'assets/mango-cheesecake.webp', price: null, tone: 'mango',
     en: { tag: 'FRESH · CREAMY · TROPICAL', name: 'Mango Cheesecake',
           desc: 'Creamy mango cheesecake over a crumbly biscuit base, finished with a bright mango layer and fresh mango.',
           ingredients: 'Biscuit crust · Cream cheese filling · Mango layer · Fresh mango' },
