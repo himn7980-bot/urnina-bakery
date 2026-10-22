@@ -25,7 +25,8 @@ Single-page bakery website — العربية / فارسی / English with full R
 3. **Photos for the vitrine** — two kinds per sweet, both set in `products.js`:
    - `cutout:` what stands on the shelf — **transparent-background PNG/WebP**, about **800×800 px**, the sweet sitting on the bottom edge. Shoot **every sweet from the same angle (20–30° from above) and the same warm light from above**, so they look like they're in one case. Without a cut-out, a gold line drawing stands in.
    - `image:` a regular photo, shown large when the sweet is opened (any ratio, at least 1200 px wide, no text on it).
-   - The case itself is drawn in code. To use a rendered case instead (e.g. from Blender), give a front-on render of the empty case with its shelf heights, and the sweets can be placed on it.
+   - The case is a rendered image: `assets/vitrine-desktop.webp` (landscape, 2 shelves × 4) and `assets/vitrine-mobile.webp` (portrait, 4 shelves × 2 used). Sweets and their name plates are placed on the image's spots, listed in `config.js` → `vitrine` in the image's own pixels (`x`, `base`, `height`, `tag`). If you replace an image with a different layout or size, update those numbers. Higher-resolution renders (2K+) look sharper; the case is shown large on desktop.
+   - With `image: ''` the site falls back to a case drawn in code.
 4. **Prices** (optional) — `price: 25000` shows "From 25,000 IQD"; `null` shows "Price on request".
 
 ## Hero scroll animation

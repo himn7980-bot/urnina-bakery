@@ -146,7 +146,7 @@ html[lang="en"] .statement-text { font-weight: 400; line-height: 1.3; max-width:
 .statement-text .w.is-gold { color: var(--gold-hi); }
 
 /* ---------- Vitrine: the display case ---------- */
-.vitrine-section { padding: clamp(90px, 10vw, 140px) var(--pad) clamp(70px, 8vw, 110px); }
+.vitrine-section { overflow-x: clip; padding: clamp(90px, 10vw, 140px) var(--pad) clamp(70px, 8vw, 110px); }
 .vitrine-head { display: grid; grid-template-columns: auto 1fr; align-items: end; gap: 12px 56px; max-width: 1240px; margin: 0 auto clamp(36px, 4vw, 56px); }
 .vitrine-head h2 { font-size: clamp(40px, 5vw, 76px); line-height: 1.15; }
 .vitrine-head p { max-width: 44ch; color: var(--muted); }
@@ -191,6 +191,26 @@ html[lang="en"] .item-tag b { font-size: 13px; letter-spacing: .02em; }
 .item-tag small { font-size: 11px; opacity: .8; line-height: 1.3; }
 .item-count { position: absolute; z-index: 3; top: -11px; inset-inline-end: -11px; min-width: 24px; height: 24px; padding: 0 6px; border-radius: 99px; background: var(--gold-hi); color: var(--ganache); font-size: 13px; font-weight: 500; line-height: 24px; text-align: center; box-shadow: 0 0 0 3px #1F140F; }
 .item-count[hidden] { display: none; }
+
+/* Vitrine from a rendered image: the render is the case, sweets and tags sit on its spots */
+.vitrine.is-image { direction: ltr; --vw: min(1560px, 118vw); width: var(--vw); max-width: none; margin-inline: calc((100% - var(--vw)) / 2); padding: 0; border: 0; border-radius: 0; box-shadow: none; background: none; overflow: visible;
+  -webkit-mask-image: radial-gradient(ellipse 62% 78% at 50% 50%, #000 70%, transparent 100%); mask-image: radial-gradient(ellipse 62% 78% at 50% 50%, #000 70%, transparent 100%); }
+.vitrine.is-image::before { content: ""; position: absolute; inset: 0; left: 0; right: 0; height: auto; border-radius: 0; box-shadow: none; z-index: 0;
+  background: var(--vit-img) center / 100% 100% no-repeat; opacity: 1; filter: brightness(.18) saturate(.5); transition: filter 1.8s var(--ease); }
+.vitrine.is-image.is-lit::before { filter: none; }
+.vitrine.is-image .vitrine-light, .vitrine.is-image .vitrine-glass { display: none; }
+.vitrine.is-image .vitrine-shelves { position: absolute; inset: 0; padding: 0; display: block; z-index: 1; }
+.spot-item { position: absolute; translate: -50% 0; display: block; }
+.spot-item .item-visual { width: 100%; height: 100%; aspect-ratio: auto; }
+.spot-item .item-visual svg { width: auto; height: 90%; max-width: 100%; margin: 0; }
+.spot-item .item-visual img { width: 100%; height: 100%; }
+.spot-item .item-visual::after { bottom: -3px; height: 8px; }
+.spot-tag { position: absolute; translate: -50% -50%; transform: none; padding: 2px 6px 3px; border-radius: 2px; border: 0; cursor: pointer; text-align: center; opacity: 0; transition: opacity .9s var(--ease), filter .3s; transition-delay: var(--d, 0s); }
+.vitrine.is-lit .spot-tag { opacity: 1; }
+.spot-tag:hover { filter: brightness(1.12); }
+html[dir="rtl"] .spot-tag { direction: rtl; }
+.spot-tag b { font-size: clamp(10px, .95vw, 13px); line-height: 1.3; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.spot-tag small { font-size: clamp(9px, .8vw, 11px); }
 
 /* ---------- Sweet detail dialog ---------- */
 .sweet-dialog { width: min(880px, calc(100vw - 32px)); max-height: calc(100svh - 32px); padding: 0; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(180deg, var(--cacao-2), var(--cacao)); color: var(--cream); overflow: auto; }
@@ -318,6 +338,11 @@ html[lang="en"] .footer-brand { font-size: 15px; letter-spacing: .3em; text-tran
   .chapter-art svg { inset-inline-end: auto; left: 50%; top: 32%; width: min(62vw, 34vh); transform: translate(-50%, -50%); }
   .vitrine-head { grid-template-columns: 1fr; }
   .item-tag b { white-space: normal; text-overflow: clip; }
+  .vitrine.is-image { --vw: calc(100% + 2 * var(--pad)); width: var(--vw); margin-inline: calc(-1 * var(--pad));
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 6%, #000 90%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0, #000 6%, #000 90%, transparent 100%); }
+  .spot-tag { padding: 2px 4px; }
+  .spot-tag b { font-size: 10.5px; line-height: 1.25; white-space: normal; }
+  .spot-tag small { font-size: 9px; }
   .shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 34px; }
   .shelf::after { display: none; }
   .shelf .item-visual::before { content: ""; position: absolute; left: -10%; right: -10%; bottom: -18px; height: 8px; background: linear-gradient(180deg, rgba(255, 236, 200, .45), rgba(255,255,255,.04)); transform: scaleX(0); transition: transform 1s var(--ease); }
@@ -345,4 +370,6 @@ html[lang="en"] .footer-brand { font-size: 15px; letter-spacing: .3em; text-tran
   .item { opacity: 1; transform: none; }
   .vitrine-light, .vitrine::before { opacity: 1; }
   .shelf::after { transform: none; }
+  .spot-tag { opacity: 1; }
+  .vitrine.is-image::before { filter: none; }
 }

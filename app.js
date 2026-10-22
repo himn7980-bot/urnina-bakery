@@ -181,15 +181,49 @@
   function priceText(p, L) { var t = copy[L]; return p.price ? t.priceFrom + ' ' + num(p.price, L) + ' ' + pick(BIZ.currency, L) : t.priceRequest; }
 
   /* ---------- Rendering ---------- */
-  /* The vitrine: products on shelves of four (two per row on phones, via CSS) */
+  /* The vitrine. With a rendered case (config.vitrine) the sweets and their
+     name tags are placed on the image's own spots; otherwise the case is
+     drawn in code with shelves of four. */
+  function vitrineLayout() {
+    var V = CFG.vitrine || {}, m = window.innerWidth <= 700 ? V.mobile : V.desktop;
+    return m && m.image ? m : null;
+  }
+  var currentLayout = null;
+  function orderedSpots(L) {
+    // group by shelf (same base line); reading direction decides the order within a shelf
+    var rows = [], byBase = {};
+    L.spots.forEach(function (sp) { if (!byBase[sp.base]) { byBase[sp.base] = []; rows.push(byBase[sp.base]); } byBase[sp.base].push(sp); });
+    rows.forEach(function (r) { r.sort(function (a, b) { return a.x - b.x; }); if (root.dir === 'rtl') r.reverse(); });
+    return [].concat.apply([], rows);
+  }
+  function itemVisual(p) { return p.cutout ? '<img src="' + esc(p.cutout) + '" alt="" loading="lazy" decoding="async">' : (ART[p.art] || ART.cake); }
   function renderVitrine() {
-    var t = copy[lang], perShelf = 4, html = '';
+    var t = copy[lang], L = vitrineLayout(), caseEl = $('#vitrineCase');
+    currentLayout = L;
+    caseEl.classList.toggle('is-image', !!L);
+    if (L) {
+      var pct = function (v, of) { return (v / of * 100).toFixed(3) + '%'; };
+      caseEl.style.setProperty('--vit-img', 'url("' + L.image + '")');
+      caseEl.style.aspectRatio = L.width + ' / ' + L.height;
+      var spots = orderedSpots(L);
+      $('#shelves').innerHTML = PRODUCTS.slice(0, spots.length).map(function (p, i) {
+        var sp = spots[i], d = p[lang] || p.en, n = boxQty(p.id);
+        var label = esc(d.name + (n ? ' — ' + n + ' ' + t.inBox : ''));
+        return '<button type="button" class="spot-item item" data-open="' + esc(p.id) + '" aria-label="' + label + '" style="--d:' + (i * .09 + .5).toFixed(2) + 's;left:' + pct(sp.x, L.width) + ';top:' + pct(sp.base - sp.height, L.height) + ';width:' + pct(L.itemWidth, L.width) + ';height:' + pct(sp.height, L.height) + '">' +
+            '<span class="item-visual" aria-hidden="true">' + itemVisual(p) + '</span></button>' +
+          '<button type="button" class="spot-tag item-tag" data-open="' + esc(p.id) + '" tabindex="-1" aria-hidden="true" style="--d:' + (i * .09 + .6).toFixed(2) + 's;left:' + pct(sp.x, L.width) + ';top:' + pct(sp.tag, L.height) + ';width:' + pct(L.tagWidth, L.width) + '">' +
+            '<b>' + esc(d.name) + '</b>' + (p.price ? '<small>' + esc(priceText(p, lang)) + '</small>' : '') +
+            '<span class="item-count"' + (n ? '' : ' hidden') + '>' + num(n, lang) + '</span></button>';
+      }).join('');
+      return;
+    }
+    caseEl.style.removeProperty('--vit-img'); caseEl.style.aspectRatio = '';
+    var perShelf = 4, html = '';
     for (var i = 0; i < PRODUCTS.length; i += perShelf) {
       html += '<div class="shelf">' + PRODUCTS.slice(i, i + perShelf).map(function (p, j) {
         var d = p[lang] || p.en, n = boxQty(p.id);
-        var visual = p.cutout ? '<img src="' + esc(p.cutout) + '" alt="" loading="lazy" decoding="async">' : (ART[p.art] || ART.cake);
         return '<button type="button" class="item" data-open="' + esc(p.id) + '" style="--d:' + ((i + j) * .08 + .3).toFixed(2) + 's" aria-label="' + esc(d.name + (n ? ' — ' + n + ' ' + t.inBox : '')) + '">' +
-          '<span class="item-visual" aria-hidden="true">' + visual + '</span>' +
+          '<span class="item-visual" aria-hidden="true">' + itemVisual(p) + '</span>' +
           '<span class="item-tag"><b>' + esc(d.name) + '</b><small>' + esc(priceText(p, lang)) + '</small>' +
           '<span class="item-count"' + (n ? '' : ' hidden') + '>' + num(n, lang) + '</span></span></button>';
       }).join('') + '</div>';
@@ -530,7 +564,7 @@
 
   window.addEventListener('scroll', requestTick, { passive: true });
   var resizeTimer;
-  window.addEventListener('resize', function () { clearTimeout(resizeTimer); resizeTimer = setTimeout(function () { initHero(); requestTick(); }, 150); });
+  window.addEventListener('resize', function () { clearTimeout(resizeTimer); resizeTimer = setTimeout(function () { initHero(); if (vitrineLayout() !== currentLayout) renderVitrine(); requestTick(); }, 150); });
 
   /* ---------- Start ---------- */
   $('#year').textContent = new Date().getFullYear();
