@@ -508,6 +508,10 @@
   function updateChrome() {
     header.classList.toggle('is-scrolled', window.scrollY > 40);
     waFloat.classList.toggle('is-tucked', hero.getBoundingClientRect().bottom > window.innerHeight * .3);
+    if (!vitrine.classList.contains('is-lit')) {   // backup for the observer
+      var vr = vitrine.getBoundingClientRect();
+      if (vr.top < window.innerHeight * .75 && vr.bottom > 0) vitrine.classList.add('is-lit');
+    }
     var o = $('#order').getBoundingClientRect();
     boxBar.classList.toggle('is-away', o.top < window.innerHeight * .8 && o.bottom > 0);
   }
