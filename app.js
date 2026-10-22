@@ -96,6 +96,47 @@
     }
   };
 
+  /* Vitrine & box wording (merged into the dictionaries above) */
+  var extra = {
+    ar: {
+      navSweets: 'الواجهة', navOrder: 'علبتك', orderNow: 'اطلب',
+      vitrineTitle: 'الواجهة', vitrineIntro: 'كل ما هنا يُصنع حسب الطلب. اضغط على أي حلوى لتراها، ثم أضفها إلى علبتك.',
+      step1Title: 'اختر من الواجهة', step1Body: 'اضغط على الحلوى لترى تفاصيلها، واختر الكمية وأضفها إلى علبتك.',
+      step2Title: 'راجع علبتك', step2Body: 'أضف اليوم الذي تحتاجها فيه، والاستلام أو التوصيل، واسمك ورقمك.',
+      step3Title: 'أرسلها عبر واتساب', step3Body: 'الرسالة تُكتب لك تلقائياً. نرد عليك بالسعر والموعد ثم نخبزها طازجة.',
+      orderTitle: 'علبتك', orderIntro: 'هذه الحلويات التي اخترتها من الواجهة. يمكنك تعديل الكميات قبل الإرسال.',
+      optPickup: 'استلام', optDelivery: 'توصيل', whatsapp: 'أرسل علبتي عبر واتساب',
+      addToBox: 'أضف إلى العلبة', addMore: 'أضف المزيد', inBox: 'في العلبة', remove: 'إزالة', close: 'إغلاق', option: 'الخيار',
+      boxBar: 'علبتك', boxReview: 'راجع وأرسل', boxEmpty: 'علبتك فارغة.', boxEmptyLink: 'اختر من الواجهة',
+      errEmpty: 'علبتك فارغة. اختر حلوى من الواجهة أولاً.', msgItems: 'الطلب'
+    },
+    fa: {
+      navSweets: 'ویترین', navOrder: 'جعبه‌ی شما', orderNow: 'سفارش',
+      vitrineTitle: 'ویترین', vitrineIntro: 'همه‌چیز اینجا به سفارش پخته می‌شود. روی هر شیرینی بزنید تا ببینیدش و به جعبه‌تان اضافه کنید.',
+      step1Title: 'از ویترین انتخاب کنید', step1Body: 'روی شیرینی بزنید، جزئیاتش را ببینید، تعداد را انتخاب کنید و به جعبه اضافه کنید.',
+      step2Title: 'جعبه را مرور کنید', step2Body: 'روز موردنیاز، تحویل یا ارسال، و نام و شماره‌تان را اضافه کنید.',
+      step3Title: 'در واتساپ بفرستید', step3Body: 'پیام خودکار نوشته می‌شود. قیمت و زمان را اعلام می‌کنیم و تازه می‌پزیم.',
+      orderTitle: 'جعبه‌ی شما', orderIntro: 'شیرینی‌هایی که از ویترین انتخاب کرده‌اید. قبل از ارسال می‌توانید تعدادها را تغییر دهید.',
+      optPickup: 'تحویل حضوری', optDelivery: 'ارسال', whatsapp: 'ارسال جعبه در واتساپ',
+      addToBox: 'افزودن به جعبه', addMore: 'افزودن بیشتر', inBox: 'در جعبه', remove: 'حذف', close: 'بستن', option: 'گزینه',
+      boxBar: 'جعبه‌ی شما', boxReview: 'مرور و ارسال', boxEmpty: 'جعبه‌تان خالی است.', boxEmptyLink: 'از ویترین انتخاب کنید',
+      errEmpty: 'جعبه‌تان خالی است. اول یک شیرینی از ویترین انتخاب کنید.', msgItems: 'سفارش'
+    },
+    en: {
+      navSweets: 'The vitrine', navOrder: 'Your box', orderNow: 'Order',
+      vitrineTitle: 'The vitrine', vitrineIntro: 'Everything here is made to order. Tap a sweet to see it, then add it to your box.',
+      step1Title: 'Pick from the vitrine', step1Body: 'Tap a sweet to see it, choose how many, and add it to your box.',
+      step2Title: 'Review your box', step2Body: 'Add the day you need it, pickup or delivery, and your name and number.',
+      step3Title: 'Send it on WhatsApp', step3Body: 'The message is written for you. We reply with price and timing, then bake it fresh.',
+      orderTitle: 'Your box', orderIntro: 'The sweets you picked from the vitrine. You can change quantities before you send.',
+      optPickup: 'Pickup', optDelivery: 'Delivery', whatsapp: 'Send my box on WhatsApp',
+      addToBox: 'Add to box', addMore: 'Add more', inBox: 'in your box', remove: 'Remove', close: 'Close', option: 'Option',
+      boxBar: 'Your box', boxReview: 'Review & send', boxEmpty: 'Your box is empty.', boxEmptyLink: 'Pick from the vitrine',
+      errEmpty: 'Your box is empty. Pick a sweet from the vitrine first.', msgItems: 'Order'
+    }
+  };
+  Object.keys(extra).forEach(function (L) { Object.keys(extra[L]).forEach(function (k) { copy[L][k] = extra[L][k]; }); });
+
   /* Gold line drawings for sweets without photos */
   var ART = {
     cake: '<svg viewBox="0 0 120 100"><path d="M10 82h100M50 82l-4 12h28l-4-12"/><path d="M22 82V50a6 6 0 0 1 6-6h64a6 6 0 0 1 6 6v32"/><path d="M22 63h76"/><path d="M22 51c4 6 8 6 12 0s8-6 12 0 8 6 12 0 8-6 12 0 8 6 12 0 8-6 12 0"/><circle cx="60" cy="35" r="5"/><path d="M61 30c1-6 4-9 9-10"/></svg>',
@@ -140,26 +181,20 @@
   function priceText(p, L) { var t = copy[L]; return p.price ? t.priceFrom + ' ' + num(p.price, L) + ' ' + pick(BIZ.currency, L) : t.priceRequest; }
 
   /* ---------- Rendering ---------- */
-  function renderProducts() {
-    var t = copy[lang];
-    $('#productList').innerHTML = PRODUCTS.map(function (p) {
-      var d = p[lang] || p.en;
-      var media = p.image
-        ? '<img src="' + esc(p.image) + '" alt="' + esc(d.name) + '" loading="lazy" decoding="async">'
-        : '<div class="sweet-art" aria-hidden="true">' + (ART[p.art] || ART.cake) + '<small>' + esc(t.photoSoon) + '</small></div>';
-      return '<li class="sweet" id="p-' + esc(p.id) + '">' +
-        '<figure class="sweet-frame" style="margin:0">' + media + '</figure>' +
-        '<h3>' + esc(d.name) + '</h3><p class="sweet-desc">' + esc(d.desc) + '</p>' +
-        '<div class="sweet-foot"><span class="sweet-price">' + esc(priceText(p, lang)) + '</span>' +
-        '<a class="btn btn-gold btn-small" href="#order" data-product="' + esc(p.id) + '" aria-label="' + esc(t.orderThis + ' — ' + d.name) + '">' + esc(t.orderThis) + '</a></div></li>';
-    }).join('');
-  }
-  function renderProductOptions() {
-    var sel = $('#product'), current = sel.value;
-    sel.innerHTML = '<option value="">' + esc(copy[lang].choose) + '</option>' + PRODUCTS.map(function (p) {
-      return '<option value="' + esc(p.id) + '">' + esc((p[lang] || p.en).name) + '</option>';
-    }).join('');
-    sel.value = current;
+  /* The vitrine: products on shelves of four (two per row on phones, via CSS) */
+  function renderVitrine() {
+    var t = copy[lang], perShelf = 4, html = '';
+    for (var i = 0; i < PRODUCTS.length; i += perShelf) {
+      html += '<div class="shelf">' + PRODUCTS.slice(i, i + perShelf).map(function (p, j) {
+        var d = p[lang] || p.en, n = boxQty(p.id);
+        var visual = p.cutout ? '<img src="' + esc(p.cutout) + '" alt="" loading="lazy" decoding="async">' : (ART[p.art] || ART.cake);
+        return '<button type="button" class="item" data-open="' + esc(p.id) + '" style="--d:' + ((i + j) * .08 + .3).toFixed(2) + 's" aria-label="' + esc(d.name + (n ? ' — ' + n + ' ' + t.inBox : '')) + '">' +
+          '<span class="item-visual" aria-hidden="true">' + visual + '</span>' +
+          '<span class="item-tag"><b>' + esc(d.name) + '</b><small>' + esc(priceText(p, lang)) + '</small>' +
+          '<span class="item-count"' + (n ? '' : ' hidden') + '>' + num(n, lang) + '</span></span></button>';
+      }).join('') + '</div>';
+    }
+    $('#shelves').innerHTML = html;
   }
   function renderContact() {
     var t = copy[lang], items = [];
@@ -191,9 +226,9 @@
     $$('[data-i18n-aria]').forEach(function (el) { var v = t[el.getAttribute('data-i18n-aria')]; if (v) el.setAttribute('aria-label', v); });
     $$('.lang-switch button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)); });
     document.title = t.brand + ' — ' + t.heroTitle.replace(/\.$/, '');
-    renderProducts(); renderProductOptions(); renderContact(); renderStatement();
+    renderVitrine(); renderBox(); renderContact(); renderStatement();
+    if (dlg.open && dlgProduct) openSweet(dlgProduct.id, true);
     store.set('urnina-lang', lang);
-    layoutGallery();
     requestTick();
   }
 
@@ -205,20 +240,92 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
   $$('.lang-switch button').forEach(function (b) { b.addEventListener('click', function () { applyLang(b.getAttribute('data-lang')); }); });
 
-  /* ---------- Order form ---------- */
+  /* ---------- Box: what the customer picked from the vitrine ---------- */
+  var box = [];   // [{id, qty, option}]
+  try { box = JSON.parse(store.get('urnina-box') || '[]').filter(function (b) { return PRODUCTS.some(function (p) { return p.id === b.id; }); }); } catch (e) { box = []; }
+  function saveBox() { store.set('urnina-box', JSON.stringify(box)); }
+  function boxQty(id) { return box.filter(function (b) { return b.id === id; }).reduce(function (n, b) { return n + b.qty; }, 0); }
+  function boxTotal() { return box.reduce(function (n, b) { return n + b.qty; }, 0); }
+  function product(id) { return PRODUCTS.filter(function (p) { return p.id === id; })[0]; }
+
+  function addToBox(id, qty, option) {
+    option = (option || '').trim();
+    var line = box.filter(function (b) { return b.id === id && b.option === option; })[0];
+    if (line) line.qty = Math.min(99, line.qty + qty); else box.push({ id: id, qty: qty, option: option });
+    saveBox(); renderBox(); renderVitrine(); bumpBar();
+  }
+  function renderBox() {
+    var t = copy[lang], el = $('#boxList');
+    if (!box.length) {
+      el.innerHTML = '<p class="box-empty">' + esc(t.boxEmpty) + ' <a href="#vitrine">' + esc(t.boxEmptyLink) + '</a></p>';
+    } else {
+      el.innerHTML = box.map(function (b, i) {
+        var p = product(b.id), d = p[lang] || p.en;
+        return '<div class="box-row"><div><b>' + esc(d.name) + '</b>' + (b.option ? '<small>' + esc(t.option) + ': ' + esc(b.option) + '</small>' : '') + '</div>' +
+          '<div class="stepper small" role="group" aria-label="' + esc(t.quantity + ' — ' + d.name) + '"><button type="button" data-line="' + i + '" data-step="-1" aria-label="−">−</button><output>' + num(b.qty, lang) + '</output><button type="button" data-line="' + i + '" data-step="1" aria-label="+">+</button></div>' +
+          '<button type="button" class="box-remove" data-remove="' + i + '">' + esc(t.remove) + '</button></div>';
+      }).join('');
+    }
+    var n = boxTotal(), bar = $('#boxBar');
+    $('#boxCount').textContent = num(n, lang);
+    bar.hidden = n === 0;
+  }
+  $('#boxList').addEventListener('click', function (e) {
+    var step = e.target.closest('[data-line]'), rm = e.target.closest('[data-remove]');
+    if (step) {
+      var b = box[+step.getAttribute('data-line')];
+      b.qty += +step.getAttribute('data-step');
+      if (b.qty < 1) box.splice(+step.getAttribute('data-line'), 1); else b.qty = Math.min(99, b.qty);
+    } else if (rm) box.splice(+rm.getAttribute('data-remove'), 1);
+    else return;
+    saveBox(); renderBox(); renderVitrine();
+  });
+  var boxBar = $('#boxBar');
+  function bumpBar() { boxBar.classList.remove('is-bump'); void boxBar.offsetWidth; boxBar.classList.add('is-bump'); }
+
+  /* ---------- Sweet detail dialog ---------- */
+  var dlg = $('#sweetDialog'), dlgProduct = null, dlgQty = 1;
+  function openSweet(id, keep) {
+    var p = product(id); if (!p) return;
+    var t = copy[lang], d = p[lang] || p.en;
+    dlgProduct = p;
+    if (!keep) { dlgQty = 1; $('#dlgOption').value = ''; }
+    var src = p.image || p.cutout;
+    $('#dlgVisual').innerHTML = src ? '<img src="' + esc(src) + '" alt="' + esc(d.name) + '"' + (p.image ? '' : ' class="is-cutout"') + '>' : (ART[p.art] || ART.cake);
+    $('#dlgName').textContent = d.name;
+    $('#dlgDesc').textContent = d.desc;
+    $('#dlgIngredients').textContent = listJoin(d.ingredients, lang);
+    $('#dlgPrice').textContent = priceText(p, lang);
+    $('#dlgQty').textContent = num(dlgQty, lang);
+    $('#dlgAdd').textContent = boxQty(p.id) ? t.addMore : t.addToBox;
+    if (!dlg.open) { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', ''); }
+  }
+  function listJoin(str, L) {
+    var items = String(str || '').split(/\s*·\s*/).filter(Boolean);
+    if (L === 'en') items = items.map(function (x, i) { return i ? x.charAt(0).toLowerCase() + x.slice(1) : x; });
+    return items.join(L === 'en' ? ', ' : '، ');
+  }
+  $('#shelves').addEventListener('click', function (e) { var b = e.target.closest('[data-open]'); if (b) openSweet(b.getAttribute('data-open')); });
+  dlg.addEventListener('click', function (e) {
+    var st = e.target.closest('[data-step]');
+    if (st && !st.hasAttribute('data-line')) { dlgQty = Math.max(1, Math.min(99, dlgQty + +st.getAttribute('data-step'))); $('#dlgQty').textContent = num(dlgQty, lang); }
+    if (e.target === dlg) dlg.close();   // click on the backdrop
+  });
+  $('#dlgAdd').addEventListener('click', function () {
+    if (!dlgProduct) return;
+    addToBox(dlgProduct.id, dlgQty, $('#dlgOption').value);
+    dlg.close();
+  });
+
+  /* ---------- Sending the box ---------- */
   var form = $('#orderForm'), status = $('#formStatus'), dateInput = $('#date');
   (function () { var d = new Date(); dateInput.min = d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()); })();
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest('[data-product]');
-    if (a) { $('#product').value = a.getAttribute('data-product'); clearError($('#product')); }
-  });
   function clearError(el) { el.classList.remove('is-invalid'); el.removeAttribute('aria-invalid'); }
   $$('input, select, textarea', form).forEach(function (el) { el.addEventListener('input', function () { clearError(el); }); });
-  function fail(el, msg) { el.classList.add('is-invalid'); el.setAttribute('aria-invalid', 'true'); el.focus(); status.textContent = msg; status.className = 'form-status wide is-error'; return false; }
+  function fail(el, msg) { if (el) { el.classList.add('is-invalid'); el.setAttribute('aria-invalid', 'true'); el.focus(); } status.textContent = msg; status.className = 'form-status wide is-error'; return false; }
   function validate() {
-    var t = copy[lang], q = parseInt($('#quantity').value, 10), digits = $('#phone').value.replace(/\D/g, '');
-    if (!$('#product').value) return fail($('#product'), t.errProduct);
-    if (!(q >= 1 && q <= 99)) return fail($('#quantity'), t.errQty);
+    var t = copy[lang], digits = $('#phone').value.replace(/\D/g, '');
+    if (!box.length) { var a = $('#boxList a'); if (a) a.focus(); return fail(null, t.errEmpty); }
     if (dateInput.value && dateInput.value < dateInput.min) return fail(dateInput, t.errDate);
     if (!$('#name').value.trim()) return fail($('#name'), t.errName);
     if (digits.length < 7 || digits.length > 15) return fail($('#phone'), t.errPhone);
@@ -226,10 +333,10 @@
   }
   function buildMessage() {
     var t = copy[lang], v = function (id) { return $(id).value.trim(); };
-    var p = PRODUCTS.filter(function (x) { return x.id === v('#product'); })[0];
     var how = (form.querySelector('input[name="delivery"]:checked') || {}).value;
-    var lines = [t.msgTitle, '', t.msgProduct + ': ' + (p ? (p[lang] || p.en).name : v('#product')), t.msgQty + ': ' + (v('#quantity') || '1')];
-    if (v('#size')) lines.push(t.msgSize + ': ' + v('#size'));
+    var lines = [t.msgTitle, ''];
+    box.forEach(function (b) { var p = product(b.id); lines.push('• ' + (p[lang] || p.en).name + ' × ' + b.qty + (b.option ? ' (' + b.option + ')' : '')); });
+    lines.push('');
     if (how) lines.push(t.msgDelivery + ': ' + (how === 'delivery' ? t.msgDeliver : t.msgPickup));
     if (v('#date')) lines.push(t.msgDate + ': ' + v('#date'));
     lines.push(t.msgName + ': ' + v('#name'), t.msgPhone + ': ' + v('#phone'));
@@ -246,8 +353,8 @@
       status.textContent = t.opened; status.className = 'form-status wide is-ok';
       return;
     }
-    var show = function () { status.textContent = t.notReady + '\n\n' + msg; };
-    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(msg).then(function () { status.textContent = t.copied; }, show); else show();
+    status.textContent = t.notReady + '\n\n' + msg;   // always visible, even if copying is blocked
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(msg).then(function () { status.textContent = t.copied + '\n\n' + msg; }, function () {});
   });
   if (waNumber) { waFloat.href = 'https://wa.me/' + waNumber; waFloat.hidden = false; }
 
@@ -380,28 +487,20 @@
     for (var i = 0; i < words.length; i++) words[i].classList.toggle('is-lit', i < lit);
   }
 
-  /* --- Collection: vertical scroll moves the gallery sideways (desktop) --- */
-  var collection = $('#collection'), track = $('.collection-track'), viewport = $('.collection-viewport'), cprog = $('.collection-progress span');
-  var galleryDist = 0, galleryOn = false;
-  function layoutGallery() {
-    galleryOn = !reduceMotion && window.innerWidth > 700;
-    if (!galleryOn) { collection.style.height = ''; track.style.transform = ''; return; }
-    galleryDist = Math.max(0, track.scrollWidth - viewport.clientWidth);
-    collection.style.height = (window.innerHeight + galleryDist) + 'px';
-  }
-  function updateGallery() {
-    if (!galleryOn) return;
-    var p = sectionProgress(collection);
-    var x = p * galleryDist * (root.dir === 'rtl' ? 1 : -1);
-    track.style.transform = 'translate3d(' + x.toFixed(1) + 'px,0,0)';
-    cprog.style.transform = 'scaleX(' + p.toFixed(4) + ')';
-  }
+  /* --- Vitrine: the case lights up once, when it comes into view --- */
+  var vitrine = $('#vitrineCase');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var vio = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { vitrine.classList.add('is-lit'); vio.disconnect(); }
+    }, { threshold: .25 });
+    vio.observe(vitrine);
+  } else vitrine.classList.add('is-lit');
 
   /* --- One reveal per section heading --- */
   var revealIO = ('IntersectionObserver' in window && !reduceMotion) ? new IntersectionObserver(function (entries) {
     entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); revealIO.unobserve(en.target); } });
   }, { rootMargin: '0px 0px -12% 0px' }) : null;
-  $$('.how h2, .steps, .order-head, .contact h2, .contact-list').forEach(function (el) {
+  $$('.vitrine-head, .how h2, .steps, .order-head, .contact h2, .contact-list').forEach(function (el) {
     if (revealIO) { el.classList.add('reveal'); revealIO.observe(el); }
   });
 
@@ -409,11 +508,13 @@
   function updateChrome() {
     header.classList.toggle('is-scrolled', window.scrollY > 40);
     waFloat.classList.toggle('is-tucked', hero.getBoundingClientRect().bottom > window.innerHeight * .3);
+    var o = $('#order').getBoundingClientRect();
+    boxBar.classList.toggle('is-away', o.top < window.innerHeight * .8 && o.bottom > 0);
   }
 
   /* --- Frame loop --- */
   var ticking = false;
-  function tick() { ticking = false; updateChrome(); updateHero(); updateStatement(); updateGallery(); }
+  function tick() { ticking = false; updateChrome(); updateHero(); updateStatement(); }
   function requestTick() { if (!ticking) { ticking = true; requestAnimationFrame(tick); } }
 
   function initHero() {
@@ -425,7 +526,7 @@
 
   window.addEventListener('scroll', requestTick, { passive: true });
   var resizeTimer;
-  window.addEventListener('resize', function () { clearTimeout(resizeTimer); resizeTimer = setTimeout(function () { initHero(); layoutGallery(); requestTick(); }, 150); });
+  window.addEventListener('resize', function () { clearTimeout(resizeTimer); resizeTimer = setTimeout(function () { initHero(); requestTick(); }, 150); });
 
   /* ---------- Start ---------- */
   $('#year').textContent = new Date().getFullYear();
@@ -435,7 +536,7 @@
 
   // Opening sequence: let the arch draw, then lift the curtain once fonts are ready
   var started = Date.now();
-  function lift() { root.classList.remove('is-loading'); layoutGallery(); requestTick(); }
+  function lift() { root.classList.remove('is-loading'); requestTick(); }
   if (reduceMotion) lift();
   else {
     var ready = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
@@ -443,7 +544,6 @@
       setTimeout(lift, Math.max(0, 1500 - (Date.now() - started)));
     });
   }
-  window.addEventListener('load', function () { layoutGallery(); requestTick(); });
 
   window.URNINA = { applyLang: applyLang };
 })();

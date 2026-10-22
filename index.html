@@ -19,7 +19,7 @@
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#collection" data-i18n="skip">Skip to the sweets</a>
+  <a class="skip-link" href="#vitrine" data-i18n="skip">Skip to the sweets</a>
 
   <!-- Opening sequence -->
   <div class="intro" aria-hidden="true">
@@ -33,9 +33,9 @@
       <span class="brand-name" data-i18n="brand">Urnina</span>
     </a>
     <nav class="primary-nav" id="primaryNav" aria-label="Primary">
-      <a href="#collection" data-i18n="navSweets">The collection</a>
+      <a href="#vitrine" data-i18n="navSweets">The vitrine</a>
       <a href="#how" data-i18n="navHow">How to order</a>
-      <a href="#order" data-i18n="navOrder">Order</a>
+      <a href="#order" data-i18n="navOrder">Your box</a>
       <a href="#contact" data-i18n="navContact">Contact</a>
     </nav>
     <div class="header-actions">
@@ -44,7 +44,7 @@
         <button type="button" data-lang="fa" lang="fa">فارسی</button>
         <button type="button" data-lang="en" lang="en">EN</button>
       </div>
-      <a class="btn btn-gold btn-small header-order" href="#order" data-i18n="orderNow">Order</a>
+      <a class="btn btn-gold btn-small header-order" href="#vitrine" data-i18n="orderNow">Order</a>
       <button class="menu-toggle" type="button" aria-controls="primaryNav" aria-expanded="false">
         <span class="sr-only" data-i18n="menuToggle">Menu</span><i></i><i></i>
       </button>
@@ -81,56 +81,53 @@
       </div>
     </section>
 
-    <!-- Statement: lights up word by word as you scroll -->
-    <section class="statement" aria-label="About Urnina">
-      <p class="statement-text" id="statement" data-i18n="statement"></p>
-      <a class="btn btn-gold" href="#order" data-i18n="heroOrder">Order on WhatsApp</a>
-    </section>
-
-    <!-- Collection: horizontal, scroll-driven gallery -->
-    <section class="collection" id="collection" aria-labelledby="collectionTitle">
-      <div class="collection-pin">
-        <div class="collection-head">
-          <h2 id="collectionTitle" data-i18n="sweetsTitle">The collection</h2>
-          <p data-i18n="sweetsIntro">Made to order in small batches. Choose a sweet and we’ll confirm price and timing on WhatsApp.</p>
-          <div class="collection-progress" aria-hidden="true"><span></span></div>
-        </div>
-        <div class="collection-viewport">
-          <ul class="collection-track" id="productList"></ul>
-        </div>
+    <!-- VITRINE: the display case. The hero animation ends here. -->
+    <section class="vitrine-section" id="vitrine" aria-labelledby="vitrineTitle">
+      <div class="vitrine-head">
+        <h2 id="vitrineTitle" data-i18n="vitrineTitle">The vitrine</h2>
+        <p data-i18n="vitrineIntro">Everything here is made to order. Tap a sweet to see it, then add it to your box.</p>
+      </div>
+      <div class="vitrine" id="vitrineCase">
+        <div class="vitrine-light" aria-hidden="true"></div>
+        <div class="vitrine-glass" aria-hidden="true"></div>
+        <div class="vitrine-shelves" id="shelves"></div>
       </div>
     </section>
 
     <section class="how" id="how" aria-labelledby="howTitle">
       <h2 id="howTitle" data-i18n="howTitle">How ordering works</h2>
       <ol class="steps">
-        <li><span class="step-n" aria-hidden="true"></span><h3 data-i18n="step1Title">Choose your sweets</h3><p data-i18n="step1Body">Fill in the short form below: what, how many, and the day you need it.</p></li>
-        <li><span class="step-n" aria-hidden="true"></span><h3 data-i18n="step2Title">Send it on WhatsApp</h3><p data-i18n="step2Body">The form writes the message for you. Just press send.</p></li>
-        <li><span class="step-n" aria-hidden="true"></span><h3 data-i18n="step3Title">We confirm and bake</h3><p data-i18n="step3Body">We reply with the price and timing, then bake it fresh for pickup or delivery.</p></li>
+        <li><span class="step-n" aria-hidden="true"></span><h3 data-i18n="step1Title">Pick from the vitrine</h3><p data-i18n="step1Body"></p></li>
+        <li><span class="step-n" aria-hidden="true"></span><h3 data-i18n="step2Title">Review your box</h3><p data-i18n="step2Body"></p></li>
+        <li><span class="step-n" aria-hidden="true"></span><h3 data-i18n="step3Title">Send it on WhatsApp</h3><p data-i18n="step3Body"></p></li>
       </ol>
     </section>
 
+    <!-- BOX: everything picked from the vitrine, plus the customer's details -->
     <section class="order" id="order" aria-labelledby="orderTitle">
       <div class="order-head">
-        <h2 id="orderTitle" data-i18n="orderTitle">Your order</h2>
-        <p data-i18n="orderIntro">Only the starred fields are needed. Everything else helps us get it just right.</p>
+        <h2 id="orderTitle" data-i18n="orderTitle">Your box</h2>
+        <p data-i18n="orderIntro"></p>
       </div>
       <form id="orderForm" class="order-form" novalidate>
-        <label class="field"><span><span data-i18n="chooseProduct">Sweet</span> <b aria-hidden="true">*</b></span><select id="product" name="product" required></select></label>
-        <label class="field"><span><span data-i18n="quantity">How many</span> <b aria-hidden="true">*</b></span><input id="quantity" name="quantity" type="number" min="1" max="99" step="1" value="1" inputmode="numeric" required></label>
-        <label class="field"><span data-i18n="size">Size or option</span><input id="size" name="size" type="text" maxlength="80" data-i18n-placeholder="sizeHint"></label>
+        <div class="box wide" id="boxList" aria-live="polite"></div>
         <label class="field"><span data-i18n="date">Day you need it</span><input id="date" name="date" type="date"></label>
-        <fieldset class="field wide choice">
+        <fieldset class="field choice">
           <legend data-i18n="delivery">Pickup or delivery</legend>
-          <label><input type="radio" name="delivery" value="pickup"><span data-i18n="optPickup">I’ll pick it up</span></label>
-          <label><input type="radio" name="delivery" value="delivery"><span data-i18n="optDelivery">Deliver it to me</span></label>
+          <label><input type="radio" name="delivery" value="pickup"><span data-i18n="optPickup">Pickup</span></label>
+          <label><input type="radio" name="delivery" value="delivery"><span data-i18n="optDelivery">Delivery</span></label>
         </fieldset>
         <label class="field"><span><span data-i18n="name">Your name</span> <b aria-hidden="true">*</b></span><input id="name" name="name" type="text" maxlength="60" autocomplete="name" required></label>
         <label class="field"><span><span data-i18n="phone">Phone number</span> <b aria-hidden="true">*</b></span><input id="phone" name="phone" type="tel" maxlength="20" autocomplete="tel" inputmode="tel" required dir="ltr" placeholder="07xx xxx xxxx"></label>
         <label class="field wide"><span data-i18n="notes">Anything else?</span><textarea id="notes" name="notes" rows="3" maxlength="500" data-i18n-placeholder="notesPh"></textarea></label>
         <p class="form-status wide" id="formStatus" role="status" aria-live="polite"></p>
-        <button class="btn btn-gold btn-wide" type="submit"><span class="wa-icon" aria-hidden="true"></span><span data-i18n="whatsapp">Send order on WhatsApp</span></button>
+        <button class="btn btn-wide" type="submit"><span class="wa-icon" aria-hidden="true"></span><span data-i18n="whatsapp">Send my box on WhatsApp</span></button>
       </form>
+    </section>
+
+    <!-- Statement: lights up word by word as you scroll -->
+    <section class="statement" aria-label="About Urnina">
+      <p class="statement-text" id="statement" data-i18n="statement"></p>
     </section>
 
     <section class="contact" id="contact" aria-labelledby="contactTitle">
@@ -144,6 +141,34 @@
     <span data-i18n="footerTag">Handmade sweets from Karbala.</span>
     <span>© <span id="year">2026</span></span>
   </footer>
+
+  <!-- Sweet detail -->
+  <dialog class="sweet-dialog" id="sweetDialog" aria-labelledby="dlgName">
+    <form method="dialog" class="dlg-close-form"><button class="dlg-close" value="close" data-i18n-aria="close" aria-label="Close"><i></i><i></i></button></form>
+    <div class="dlg-visual" id="dlgVisual"></div>
+    <div class="dlg-body">
+      <h3 id="dlgName"></h3>
+      <p class="dlg-desc" id="dlgDesc"></p>
+      <p class="dlg-ingredients" id="dlgIngredients"></p>
+      <p class="dlg-price" id="dlgPrice"></p>
+      <label class="field"><span data-i18n="size">Size or option</span><input id="dlgOption" type="text" maxlength="80" data-i18n-placeholder="sizeHint"></label>
+      <div class="dlg-actions">
+        <div class="stepper" role="group" data-i18n-aria="quantity" aria-label="How many">
+          <button type="button" data-step="-1" aria-label="−">−</button>
+          <output id="dlgQty">1</output>
+          <button type="button" data-step="1" aria-label="+">+</button>
+        </div>
+        <button type="button" class="btn btn-wide" id="dlgAdd" data-i18n="addToBox">Add to box</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Box bar: appears once something is in the box -->
+  <a class="box-bar" id="boxBar" href="#order" hidden>
+    <span class="box-count" id="boxCount">0</span>
+    <span data-i18n="boxBar">Your box</span>
+    <span class="box-go" data-i18n="boxReview">Review &amp; send</span>
+  </a>
 
   <a class="wa-float" id="waFloat" hidden target="_blank" rel="noopener" data-i18n-aria="waFloat" aria-label="WhatsApp"><span class="wa-icon" aria-hidden="true"></span></a>
 

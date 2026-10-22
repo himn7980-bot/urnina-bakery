@@ -4,25 +4,28 @@ Single-page bakery website — العربية / فارسی / English with full R
 
 **Design:** dark luxury — ganache `#130B08`, cacao `#1F140F`, gold `#C9A66B` / `#E7CB94`, cream `#F3E7D9`. Reem Kufi (Arabic/Persian headings), Bodoni Moda (English headings), Vazirmatn (text), all self-hosted in `assets/fonts/`.
 
-**Motion:** an opening sequence (the arch draws, the name rises), a pinned hero told in four chapters, a statement that lights up word by word, and a collection that scrolls sideways (a swipe carousel on phones). Everything respects *reduce motion*.
+**Motion:** an opening sequence (the arch draws, the name rises), a pinned hero told in four chapters, then **the vitrine** — a lit display case that switches on as it comes into view, its sweets settling onto glass shelves. Tapping a sweet opens it; *Add to box* collects several sweets, and the whole box is sent on WhatsApp in one message. A statement near the end lights up word by word. Everything respects *reduce motion*.
 
 ## Files
 
 | File | What it is |
 |---|---|
 | `config.js` | **Business settings** — WhatsApp, phone, Instagram, hours, default language, hero animation frames |
-| `products.js` | **Products** — names/descriptions in 3 languages, photo, price. the sweets grid and the order form are both built from this list |
+| `products.js` | **Products** — names/descriptions in 3 languages, shelf cut-out, photo, price. The vitrine and the box are built from this list |
 | `index.html` | Page structure |
 | `styles.css` | Design |
 | `app.js` | Language switching, rendering, order form, hero animation player |
-| `assets/fonts/` | Self-hosted Lalezar + Vazirmatn (Arabic + Latin) |
+| `assets/fonts/` | Self-hosted Reem Kufi, Bodoni Moda, Vazirmatn |
 
 ## Going live — checklist
 
 1. **WhatsApp** — put the business number in `config.js` → `whatsapp: '9647XXXXXXXXX'` (digits only).
    The order form then opens WhatsApp with the full order written in the customer's language, and a floating WhatsApp button appears.
 2. **Phone / Instagram / hours** — fill in `config.js`. Empty values are hidden, nothing says "to be added".
-3. **Photos** — in `products.js` set `image:` per product. Photos sit in a **portrait 4:5 arch** on a dark page: shoot portrait (at least **1000×1250 px**), on a dark or warm background, sweet centred with room above it for the curve, **no text or logo on the photo**. Products without a photo show a gold line drawing.
+3. **Photos for the vitrine** — two kinds per sweet, both set in `products.js`:
+   - `cutout:` what stands on the shelf — **transparent-background PNG/WebP**, about **800×800 px**, the sweet sitting on the bottom edge. Shoot **every sweet from the same angle (20–30° from above) and the same warm light from above**, so they look like they're in one case. Without a cut-out, a gold line drawing stands in.
+   - `image:` a regular photo, shown large when the sweet is opened (any ratio, at least 1200 px wide, no text on it).
+   - The case itself is drawn in code. To use a rendered case instead (e.g. from Blender), give a front-on render of the empty case with its shelf heights, and the sweets can be placed on it.
 4. **Prices** (optional) — `price: 25000` shows "From 25,000 IQD"; `null` shows "Price on request".
 
 ## Hero scroll animation
@@ -50,7 +53,7 @@ The hero is pinned while the visitor scrolls through it (about 4 screens), and t
 | 20 – 44 % | Chapter 1 — *Simple ingredients* | Ingredients: butter, cream, fruit, nuts |
 | 44 – 68 % | Chapter 2 — *Made by hand* | Hands folding a crepe, layering a cake |
 | 68 – 93 % | Chapter 3 — *Finished with care* | The finished sweet: glaze, sugar dust, ribbon |
-| 93 – 100 % | (text clears) | Hold on the hero shot |
+| 93 – 100 % | (text clears) | Camera arrives at the vitrine — the page continues straight into the lit display case |
 
 - Text sits at the **bottom-start corner** (bottom-right in Arabic/Persian, bottom-left in English), so keep that corner darker and less busy.
 - Until frames are added, gold sugar dust and gold line drawings stand in for the animation.

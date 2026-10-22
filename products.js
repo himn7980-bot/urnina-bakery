@@ -1,10 +1,12 @@
 /* ==========================================================
    URNINA — products
-   One entry per product. The sweets grid and the order form are both
+   One entry per product. The vitrine and the box are both
    built from this list, so add / edit / remove products only here.
 
-   image: path to a photo (portrait 4:5, at least 1000x1250px, no text on the photo),
-          or null to show the gold line drawing until a photo exists.
+   cutout: path to a cut-out PNG/WebP with a transparent background, shot
+          at the same angle and light as the others. This is what stands on the
+          vitrine shelf. Without one, a gold line drawing stands in.
+   image: path to a regular photo, shown large when the sweet is opened.
    price: number in IQD (e.g. 25000) to show "from 25,000 IQD",
           or null to show "Price on request".
    art:   gold line drawing shown until a photo exists — cake, crepe or tart.
