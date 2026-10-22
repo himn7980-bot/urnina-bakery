@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="is-loading">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#F2DCD8" />
+  <meta name="theme-color" content="#130B08" />
   <title>Urnina — More than sweets</title>
   <meta name="description" content="Urnina — cakes, crepes and tartlets made by hand in Karbala, to order. Order on WhatsApp." />
   <meta property="og:type" content="website" />
@@ -11,25 +11,31 @@
   <meta property="og:description" content="Cakes, crepes and tartlets made by hand in Karbala, to order." />
   <meta property="og:image" content="assets/carrot-cake-photo.webp" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M10 60V30a22 22 0 0 1 44 0v30z' fill='%233B1F17'/%3E%3Cpath d='M18 60V31a14 14 0 0 1 28 0v29z' fill='%23F2DCD8'/%3E%3C/svg%3E" />
-  <link rel="preload" href="assets/fonts/lalezar-arabic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23130B08'/%3E%3Cpath d='M18 54V30a14 14 0 0 1 28 0v24' fill='none' stroke='%23C9A66B' stroke-width='3'/%3E%3C/svg%3E" />
+  <link rel="preload" href="assets/fonts/reem-kufi-arabic-500-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css" />
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Bakery","name":"Urnina","description":"Cakes, crepes and tartlets made by hand, to order.","address":{"@type":"PostalAddress","addressLocality":"Karbala","addressCountry":"IQ"},"servesCuisine":"Desserts"}
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#sweets" data-i18n="skip">Skip to the sweets</a>
+  <a class="skip-link" href="#collection" data-i18n="skip">Skip to the sweets</a>
+
+  <!-- Opening sequence -->
+  <div class="intro" aria-hidden="true">
+    <svg class="intro-arch" viewBox="0 0 120 150"><path d="M10 148V60a50 50 0 0 1 100 0v88"/></svg>
+    <span class="intro-word" data-i18n="brand">Urnina</span>
+  </div>
 
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Urnina">
-      <svg class="brand-arch" viewBox="0 0 40 48" aria-hidden="true"><path d="M3 47V20a17 17 0 0 1 34 0v27"/></svg>
+      <svg class="brand-arch" viewBox="0 0 40 50" aria-hidden="true"><path d="M3 49V20a17 17 0 0 1 34 0v29"/></svg>
       <span class="brand-name" data-i18n="brand">Urnina</span>
     </a>
     <nav class="primary-nav" id="primaryNav" aria-label="Primary">
-      <a href="#sweets" data-i18n="navSweets">Our sweets</a>
+      <a href="#collection" data-i18n="navSweets">The collection</a>
       <a href="#how" data-i18n="navHow">How to order</a>
-      <a href="#story" data-i18n="navStory">Our story</a>
+      <a href="#order" data-i18n="navOrder">Order</a>
       <a href="#contact" data-i18n="navContact">Contact</a>
     </nav>
     <div class="header-actions">
@@ -38,7 +44,7 @@
         <button type="button" data-lang="fa" lang="fa">فارسی</button>
         <button type="button" data-lang="en" lang="en">EN</button>
       </div>
-      <a class="btn btn-small header-order" href="#order" data-i18n="orderNow">Order</a>
+      <a class="btn btn-gold btn-small header-order" href="#order" data-i18n="orderNow">Order</a>
       <button class="menu-toggle" type="button" aria-controls="primaryNav" aria-expanded="false">
         <span class="sr-only" data-i18n="menuToggle">Menu</span><i></i><i></i>
       </button>
@@ -46,31 +52,53 @@
   </header>
 
   <main id="top">
-    <!-- Hero. Without animation frames: a still arch with a photo.
-         With frames (config.js): the arch grows to fill the screen as you scroll and the frames play. -->
+    <!-- HERO: a pinned scroll story in four chapters.
+         Your animation frames (config.js) play behind it; until then, gold sugar dust. -->
     <section class="hero" id="hero">
       <div class="hero-stage">
-        <div class="hero-copy">
-          <h1 data-i18n="heroTitle">More than sweets.</h1>
-          <p class="hero-sub" data-i18n="heroSub">Cakes, crepes and tartlets made by hand in Karbala, baked to order for your day.</p>
-          <div class="hero-actions">
-            <a class="btn" href="#order" data-i18n="heroOrder">Order on WhatsApp</a>
-            <a class="link" href="#sweets" data-i18n="heroSee">See the sweets</a>
-          </div>
+        <canvas class="hero-dust" aria-hidden="true"></canvas>
+        <canvas class="hero-frames" aria-hidden="true"></canvas>
+        <div class="hero-vignette" aria-hidden="true"></div>
+
+        <div class="hero-title">
+          <svg class="hero-arch" viewBox="0 0 300 380" aria-hidden="true"><path pathLength="1" d="M8 378V150a142 142 0 0 1 284 0v228"/></svg>
+          <h1><span class="hero-word" data-i18n="brand">Urnina</span><span class="sr-only" data-i18n="heroTitle">More than sweets.</span></h1>
+          <p class="hero-tagline" data-i18n="heroTitle">More than sweets.</p>
         </div>
-        <figure class="hero-arch arch">
-          <img src="assets/carrot-cake-photo.webp" alt="" data-i18n-alt="heroAlt" width="615" height="563" fetchpriority="high">
-        </figure>
-        <canvas class="hero-canvas" aria-hidden="true"></canvas>
+
+        <div class="chapter-art" aria-hidden="true"></div>
+        <ol class="chapters" aria-label="Our story in four steps">
+          <li class="chapter" data-ch="1"><h2 data-i18n="ch1Title">Simple ingredients</h2><p data-i18n="ch1Body">Butter, cream, fresh fruit and nuts, chosen the morning we bake.</p></li>
+          <li class="chapter" data-ch="2"><h2 data-i18n="ch2Title">Made by hand</h2><p data-i18n="ch2Body">Every crepe folded and every cake layered by hand, in small batches.</p></li>
+          <li class="chapter" data-ch="3"><h2 data-i18n="ch3Title">Finished with care</h2><p data-i18n="ch3Body">Glazed, dusted and tied, ready to be given.</p></li>
+        </ol>
+
+        <div class="hero-rail" aria-hidden="true">
+          <span class="rail-fill"></span>
+          <span class="rail-dot" data-ch="0"></span><span class="rail-dot" data-ch="1"></span><span class="rail-dot" data-ch="2"></span><span class="rail-dot" data-ch="3"></span>
+        </div>
+        <div class="scroll-cue" aria-hidden="true"><span data-i18n="scroll">Scroll</span><i></i></div>
       </div>
     </section>
 
-    <section class="sweets" id="sweets" aria-labelledby="sweetsTitle">
-      <div class="section-intro">
-        <h2 id="sweetsTitle" data-i18n="sweetsTitle">Our sweets</h2>
-        <p data-i18n="sweetsIntro">Everything is made to order in small batches. Pick what you like and we’ll confirm price and timing on WhatsApp.</p>
+    <!-- Statement: lights up word by word as you scroll -->
+    <section class="statement" aria-label="About Urnina">
+      <p class="statement-text" id="statement" data-i18n="statement"></p>
+      <a class="btn btn-gold" href="#order" data-i18n="heroOrder">Order on WhatsApp</a>
+    </section>
+
+    <!-- Collection: horizontal, scroll-driven gallery -->
+    <section class="collection" id="collection" aria-labelledby="collectionTitle">
+      <div class="collection-pin">
+        <div class="collection-head">
+          <h2 id="collectionTitle" data-i18n="sweetsTitle">The collection</h2>
+          <p data-i18n="sweetsIntro">Made to order in small batches. Choose a sweet and we’ll confirm price and timing on WhatsApp.</p>
+          <div class="collection-progress" aria-hidden="true"><span></span></div>
+        </div>
+        <div class="collection-viewport">
+          <ul class="collection-track" id="productList"></ul>
+        </div>
       </div>
-      <ul class="sweet-grid" id="productList"></ul>
     </section>
 
     <section class="how" id="how" aria-labelledby="howTitle">
@@ -83,36 +111,26 @@
     </section>
 
     <section class="order" id="order" aria-labelledby="orderTitle">
-      <div class="order-card">
-        <div class="order-head">
-          <h2 id="orderTitle" data-i18n="orderTitle">Your order</h2>
-          <p data-i18n="orderIntro">Only the starred fields are needed. Everything else helps us get it right.</p>
-        </div>
-        <form id="orderForm" class="order-form" novalidate>
-          <label class="field"><span><span data-i18n="chooseProduct">Sweet</span> <b aria-hidden="true">*</b></span><select id="product" name="product" required></select></label>
-          <label class="field"><span><span data-i18n="quantity">How many</span> <b aria-hidden="true">*</b></span><input id="quantity" name="quantity" type="number" min="1" max="99" step="1" value="1" inputmode="numeric" required></label>
-          <label class="field"><span data-i18n="size">Size or option</span><input id="size" name="size" type="text" maxlength="80" data-i18n-placeholder="sizeHint"></label>
-          <label class="field"><span data-i18n="date">Day you need it</span><input id="date" name="date" type="date"></label>
-          <fieldset class="field wide choice">
-            <legend data-i18n="delivery">Pickup or delivery</legend>
-            <label><input type="radio" name="delivery" value="pickup"><span data-i18n="optPickup">I’ll pick it up</span></label>
-            <label><input type="radio" name="delivery" value="delivery"><span data-i18n="optDelivery">Deliver it to me</span></label>
-          </fieldset>
-          <label class="field"><span><span data-i18n="name">Your name</span> <b aria-hidden="true">*</b></span><input id="name" name="name" type="text" maxlength="60" autocomplete="name" required></label>
-          <label class="field"><span><span data-i18n="phone">Phone number</span> <b aria-hidden="true">*</b></span><input id="phone" name="phone" type="tel" maxlength="20" autocomplete="tel" inputmode="tel" required dir="ltr" placeholder="07xx xxx xxxx"></label>
-          <label class="field wide"><span data-i18n="notes">Anything else?</span><textarea id="notes" name="notes" rows="3" maxlength="500" data-i18n-placeholder="notesPh"></textarea></label>
-          <p class="form-status wide" id="formStatus" role="status" aria-live="polite"></p>
-          <button class="btn btn-wide" type="submit"><span class="wa-icon" aria-hidden="true"></span><span data-i18n="whatsapp">Send order on WhatsApp</span></button>
-        </form>
+      <div class="order-head">
+        <h2 id="orderTitle" data-i18n="orderTitle">Your order</h2>
+        <p data-i18n="orderIntro">Only the starred fields are needed. Everything else helps us get it just right.</p>
       </div>
-    </section>
-
-    <section class="story" id="story" aria-labelledby="storyTitle">
-      <div class="story-arch arch" aria-hidden="true"><span data-i18n="brand">Urnina</span></div>
-      <div class="story-copy">
-        <h2 id="storyTitle" data-i18n="storyTitle">Baked by hand, one order at a time</h2>
-        <p data-i18n="storyBody"></p>
-      </div>
+      <form id="orderForm" class="order-form" novalidate>
+        <label class="field"><span><span data-i18n="chooseProduct">Sweet</span> <b aria-hidden="true">*</b></span><select id="product" name="product" required></select></label>
+        <label class="field"><span><span data-i18n="quantity">How many</span> <b aria-hidden="true">*</b></span><input id="quantity" name="quantity" type="number" min="1" max="99" step="1" value="1" inputmode="numeric" required></label>
+        <label class="field"><span data-i18n="size">Size or option</span><input id="size" name="size" type="text" maxlength="80" data-i18n-placeholder="sizeHint"></label>
+        <label class="field"><span data-i18n="date">Day you need it</span><input id="date" name="date" type="date"></label>
+        <fieldset class="field wide choice">
+          <legend data-i18n="delivery">Pickup or delivery</legend>
+          <label><input type="radio" name="delivery" value="pickup"><span data-i18n="optPickup">I’ll pick it up</span></label>
+          <label><input type="radio" name="delivery" value="delivery"><span data-i18n="optDelivery">Deliver it to me</span></label>
+        </fieldset>
+        <label class="field"><span><span data-i18n="name">Your name</span> <b aria-hidden="true">*</b></span><input id="name" name="name" type="text" maxlength="60" autocomplete="name" required></label>
+        <label class="field"><span><span data-i18n="phone">Phone number</span> <b aria-hidden="true">*</b></span><input id="phone" name="phone" type="tel" maxlength="20" autocomplete="tel" inputmode="tel" required dir="ltr" placeholder="07xx xxx xxxx"></label>
+        <label class="field wide"><span data-i18n="notes">Anything else?</span><textarea id="notes" name="notes" rows="3" maxlength="500" data-i18n-placeholder="notesPh"></textarea></label>
+        <p class="form-status wide" id="formStatus" role="status" aria-live="polite"></p>
+        <button class="btn btn-gold btn-wide" type="submit"><span class="wa-icon" aria-hidden="true"></span><span data-i18n="whatsapp">Send order on WhatsApp</span></button>
+      </form>
     </section>
 
     <section class="contact" id="contact" aria-labelledby="contactTitle">

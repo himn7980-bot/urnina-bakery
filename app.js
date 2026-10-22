@@ -1,4 +1,4 @@
-/* Urnina — interactions */
+/* Urnina — interactions & motion */
 (function () {
   'use strict';
   var CFG = window.URNINA_CONFIG || {};
@@ -9,11 +9,15 @@
   var copy = {
     ar: {
       brand: 'أورنينا', skip: 'انتقل إلى الحلويات', menuToggle: 'القائمة',
-      navSweets: 'حلوياتنا', navHow: 'طريقة الطلب', navStory: 'قصتنا', navContact: 'تواصل معنا', orderNow: 'اطلب',
-      heroTitle: 'أكثر من مجرد حلويات.', heroSub: 'كيك وكريب وتارت مصنوعة يدوياً في كربلاء، تُخبز حسب الطلب ليومك.',
-      heroOrder: 'اطلب عبر واتساب', heroSee: 'شاهد الحلويات', heroAlt: 'كيكة الجزر من أورنينا',
-      sweetsTitle: 'حلوياتنا', sweetsIntro: 'كل شيء يُصنع حسب الطلب وبكميات صغيرة. اختر ما يعجبك وسنؤكد لك السعر والموعد عبر واتساب.',
-      madeWith: 'المكونات:', priceRequest: 'السعر عند الطلب', priceFrom: 'ابتداءً من', orderThis: 'اطلبها', photoSoon: 'الصورة قريباً',
+      navSweets: 'المجموعة', navHow: 'طريقة الطلب', navOrder: 'الطلب', navContact: 'تواصل معنا', orderNow: 'اطلب',
+      heroTitle: 'أكثر من مجرد حلويات.', scroll: 'مرّر',
+      ch1Title: 'مكونات بسيطة', ch1Body: 'زبدة جيدة، وكريمة طازجة، وفواكه ناضجة، ومكسرات.',
+      ch2Title: 'مصنوعة يدوياً', ch2Body: 'كل كريب يُطوى وكل كيكة تُرتّب طبقاتها باليد، بكميات صغيرة.',
+      ch3Title: 'لمسة أخيرة بعناية', ch3Body: 'تُزيَّن وتُرشّ وتُربط، جاهزة لتُهدى.',
+      statement: 'كل حلوى من أورنينا تُصنع يدوياً في كربلاء، بكميات صغيرة، وفقط بعد أن تطلبها. لا شيء ينتظر على الرف.',
+      heroOrder: 'اطلب عبر واتساب',
+      sweetsTitle: 'المجموعة', sweetsIntro: 'تُصنع حسب الطلب وبكميات صغيرة. اختر حلواك وسنؤكد لك السعر والموعد عبر واتساب.',
+      priceRequest: 'السعر عند الطلب', priceFrom: 'ابتداءً من', orderThis: 'اطلبها', photoSoon: 'الصورة قريباً',
       howTitle: 'طريقة الطلب',
       step1Title: 'اختر حلوياتك', step1Body: 'املأ النموذج القصير أدناه: ماذا تريد، وكم، وفي أي يوم.',
       step2Title: 'أرسله عبر واتساب', step2Body: 'النموذج يكتب الرسالة نيابةً عنك. فقط اضغط إرسال.',
@@ -29,18 +33,20 @@
       notReady: 'الطلب عبر واتساب سيتوفر قريباً. هذا نص طلبك:',
       msgTitle: 'طلب جديد — أورنينا', msgProduct: 'الحلوى', msgQty: 'الكمية', msgSize: 'الحجم / الخيار', msgDelivery: 'الاستلام', msgDate: 'اليوم المطلوب', msgName: 'الاسم', msgPhone: 'الهاتف', msgNotes: 'ملاحظات',
       msgPickup: 'استلام', msgDeliver: 'توصيل',
-      storyTitle: 'تُخبز يدوياً، طلباً بعد طلب',
-      storyBody: 'كل حلوى من أورنينا تُصنع يدوياً في كربلاء، بكميات صغيرة، وفقط بعد أن تطلبها. لهذا لا شيء ينتظر على الرف: كيكتك تُخبز ليومك أنت.',
       contactTitle: 'تواصل معنا', location: 'المكان', phoneLabel: 'الهاتف', hours: 'ساعات العمل', orderLabel: 'الطلبات', orderViaForm: 'عبر نموذج الطلب أعلاه',
       footerTag: 'حلويات يدوية من كربلاء.', waFloat: 'راسلنا على واتساب'
     },
     fa: {
       brand: 'اورنینا', skip: 'رفتن به شیرینی‌ها', menuToggle: 'منو',
-      navSweets: 'شیرینی‌ها', navHow: 'روش سفارش', navStory: 'داستان ما', navContact: 'تماس', orderNow: 'سفارش',
-      heroTitle: 'فراتر از شیرینی.', heroSub: 'کیک، کرپ و تارت دست‌ساز در کربلا، که برای روز شما به سفارش پخته می‌شود.',
-      heroOrder: 'سفارش در واتساپ', heroSee: 'شیرینی‌ها را ببینید', heroAlt: 'کیک هویج اورنینا',
-      sweetsTitle: 'شیرینی‌های ما', sweetsIntro: 'همه‌چیز به سفارش و در تعداد کم پخته می‌شود. هر کدام را دوست دارید انتخاب کنید؛ قیمت و زمان را در واتساپ تأیید می‌کنیم.',
-      madeWith: 'مواد:', priceRequest: 'قیمت هنگام سفارش', priceFrom: 'از', orderThis: 'سفارش', photoSoon: 'عکس به‌زودی',
+      navSweets: 'مجموعه', navHow: 'روش سفارش', navOrder: 'سفارش', navContact: 'تماس', orderNow: 'سفارش',
+      heroTitle: 'فراتر از شیرینی.', scroll: 'اسکرول کنید',
+      ch1Title: 'مواد ساده', ch1Body: 'کره‌ی خوب، خامه‌ی تازه، میوه‌ی رسیده و مغزها.',
+      ch2Title: 'دست‌ساز', ch2Body: 'هر کرپ با دست تا می‌شود و هر کیک با دست لایه‌چینی می‌شود، در تعداد کم.',
+      ch3Title: 'پایان با دقت', ch3Body: 'تزیین‌شده، پودرزده و گره‌خورده؛ آماده‌ی هدیه دادن.',
+      statement: 'هر شیرینی اورنینا در کربلا، با دست و در تعداد کم، و فقط بعد از سفارش شما پخته می‌شود. هیچ چیزی روی قفسه منتظر نمی‌ماند.',
+      heroOrder: 'سفارش در واتساپ',
+      sweetsTitle: 'مجموعه', sweetsIntro: 'به سفارش و در تعداد کم پخته می‌شود. شیرینی‌تان را انتخاب کنید؛ قیمت و زمان را در واتساپ تأیید می‌کنیم.',
+      priceRequest: 'قیمت هنگام سفارش', priceFrom: 'از', orderThis: 'سفارش', photoSoon: 'عکس به‌زودی',
       howTitle: 'سفارش چطور انجام می‌شود',
       step1Title: 'شیرینی را انتخاب کنید', step1Body: 'فرم کوتاه پایین را پر کنید: چه چیزی، چند تا، و برای چه روزی.',
       step2Title: 'در واتساپ بفرستید', step2Body: 'فرم پیام را برایتان می‌نویسد. فقط دکمه ارسال را بزنید.',
@@ -56,18 +62,20 @@
       notReady: 'سفارش در واتساپ به‌زودی فعال می‌شود. متن سفارش شما:',
       msgTitle: 'سفارش جدید — اورنینا', msgProduct: 'شیرینی', msgQty: 'تعداد', msgSize: 'اندازه / گزینه', msgDelivery: 'تحویل', msgDate: 'روز موردنیاز', msgName: 'نام', msgPhone: 'تلفن', msgNotes: 'توضیحات',
       msgPickup: 'تحویل حضوری', msgDeliver: 'ارسال',
-      storyTitle: 'دست‌ساز، سفارش به سفارش',
-      storyBody: 'هر شیرینی اورنینا در کربلا، با دست و در تعداد کم، و فقط بعد از سفارش شما پخته می‌شود. برای همین چیزی روی قفسه منتظر نمی‌ماند: کیک شما برای روز خود شما پخته می‌شود.',
       contactTitle: 'تماس با ما', location: 'مکان', phoneLabel: 'تلفن', hours: 'ساعات کاری', orderLabel: 'سفارش', orderViaForm: 'از فرم سفارش بالا',
       footerTag: 'شیرینی دست‌ساز از کربلا.', waFloat: 'پیام در واتساپ'
     },
     en: {
       brand: 'Urnina', skip: 'Skip to the sweets', menuToggle: 'Menu',
-      navSweets: 'Our sweets', navHow: 'How to order', navStory: 'Our story', navContact: 'Contact', orderNow: 'Order',
-      heroTitle: 'More than sweets.', heroSub: 'Cakes, crepes and tartlets made by hand in Karbala, baked to order for your day.',
-      heroOrder: 'Order on WhatsApp', heroSee: 'See the sweets', heroAlt: 'Urnina carrot cake',
-      sweetsTitle: 'Our sweets', sweetsIntro: 'Everything is made to order in small batches. Pick what you like and we’ll confirm price and timing on WhatsApp.',
-      madeWith: 'Made with', priceRequest: 'Price on request', priceFrom: 'From', orderThis: 'Order this', photoSoon: 'Photo coming soon',
+      navSweets: 'The collection', navHow: 'How to order', navOrder: 'Order', navContact: 'Contact', orderNow: 'Order',
+      heroTitle: 'More than sweets.', scroll: 'Scroll',
+      ch1Title: 'Simple ingredients', ch1Body: 'Good butter, fresh cream, ripe fruit and nuts.',
+      ch2Title: 'Made by hand', ch2Body: 'Every crepe folded and every cake layered by hand, in small batches.',
+      ch3Title: 'Finished with care', ch3Body: 'Glazed, dusted and tied, ready to be given.',
+      statement: 'Every Urnina sweet is made by hand in Karbala, in small batches, and only after you order it. Nothing waits on a shelf.',
+      heroOrder: 'Order on WhatsApp',
+      sweetsTitle: 'The collection', sweetsIntro: 'Made to order in small batches. Choose a sweet and we’ll confirm price and timing on WhatsApp.',
+      priceRequest: 'Price on request', priceFrom: 'From', orderThis: 'Order this', photoSoon: 'Photo coming soon',
       howTitle: 'How ordering works',
       step1Title: 'Choose your sweets', step1Body: 'Fill in the short form below: what, how many, and the day you need it.',
       step2Title: 'Send it on WhatsApp', step2Body: 'The form writes the message for you. Just press send.',
@@ -83,12 +91,25 @@
       notReady: 'WhatsApp ordering opens soon. Here is your order:',
       msgTitle: 'New order — Urnina', msgProduct: 'Sweet', msgQty: 'How many', msgSize: 'Size / option', msgDelivery: 'Pickup / delivery', msgDate: 'Day needed', msgName: 'Name', msgPhone: 'Phone', msgNotes: 'Notes',
       msgPickup: 'Pickup', msgDeliver: 'Delivery',
-      storyTitle: 'Baked by hand, one order at a time',
-      storyBody: 'Every Urnina sweet is made by hand in Karbala, in small batches, and only after you order it. Nothing waits on a shelf: your cake is baked for your day.',
       contactTitle: 'Find us', location: 'Where', phoneLabel: 'Phone', hours: 'Opening hours', orderLabel: 'Orders', orderViaForm: 'Through the order form above',
       footerTag: 'Handmade sweets from Karbala.', waFloat: 'Message us on WhatsApp'
     }
   };
+
+  /* Gold line drawings for sweets without photos */
+  var ART = {
+    cake: '<svg viewBox="0 0 120 100"><path d="M10 82h100M50 82l-4 12h28l-4-12"/><path d="M22 82V50a6 6 0 0 1 6-6h64a6 6 0 0 1 6 6v32"/><path d="M22 63h76"/><path d="M22 51c4 6 8 6 12 0s8-6 12 0 8 6 12 0 8-6 12 0 8 6 12 0 8-6 12 0"/><circle cx="60" cy="35" r="5"/><path d="M61 30c1-6 4-9 9-10"/></svg>',
+    crepe: '<svg viewBox="0 0 120 100"><path d="M14 88h92"/><path d="M38 86c-9-14-5-30 8-36h28c13 6 17 22 8 36z"/><path d="M44 50h32"/><path d="M60 50c-6-9-17-7-13 1M60 50c6-9 17-7 13 1"/><path d="M47 50l-8-18M54 50l-3-22M66 50l3-22M73 50l8-18"/></svg>',
+    tart: '<svg viewBox="0 0 120 100"><path d="M10 88h100"/><path d="M24 70l7 16h58l7-16z"/><path d="M36 72l3 14M48 72l2 14M60 72v14M72 72l-2 14M84 72l-3 14"/><path d="M28 70c6-17 58-17 64 0"/><circle cx="52" cy="60" r="2"/><circle cx="64" cy="57" r="2"/><circle cx="73" cy="62" r="1.6"/><circle cx="58" cy="64" r="1.4"/><circle cx="45" cy="65" r="1.3"/></svg>'
+  };
+
+  /* Larger drawings for the three hero chapters */
+  var CHAPTER_ART = [
+    // 1 — simple ingredients: a strawberry and a walnut
+    '<svg viewBox="0 0 120 100"><path d="M46 30c-12 0-19 9-17 21 2 12 10 22 17 26 7-4 15-14 17-26 2-12-5-21-17-21z"/><path d="M37 30c3-5 6-7 9-7s6 2 9 7M46 23v-8M46 15c3-2 6-2 9 0"/><circle cx="40" cy="42" r=".8"/><circle cx="51" cy="40" r=".8"/><circle cx="45" cy="52" r=".8"/><circle cx="54" cy="52" r=".8"/><circle cx="39" cy="57" r=".8"/><circle cx="47" cy="64" r=".8"/><path d="M80 58c-9 0-14 6-14 13s5 13 14 13 14-6 14-13-5-13-14-13z"/><path d="M80 58v26M73 64c3 2 3 6 0 8s-3 6 0 8M87 64c-3 2-3 6 0 8s3 6 0 8"/><path d="M14 92h92"/></svg>',
+    ART.crepe,
+    ART.cake
+  ];
 
   /* ---------- Helpers ---------- */
   var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -101,13 +122,11 @@
   function pick(obj, L) { return obj ? (obj[L] || obj.en || '') : ''; }
   function pad2(n) { return n < 10 ? '0' + n : String(n); }
   function num(n, L) { try { return new Intl.NumberFormat(L === 'en' ? 'en-US' : L === 'fa' ? 'fa-IR' : 'ar-IQ').format(n); } catch (e) { return String(n); } }
-  function listJoin(s, L) {
-    var items = String(s || '').split(/\s*·\s*/).filter(Boolean);
-    if (L === 'en') items = items.map(function (x) { return x.charAt(0).toLowerCase() + x.slice(1); });
-    return items.join(L === 'en' ? ', ' : '، ');
-  }
+  function clamp01(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
+  function ease(x) { return 1 - Math.pow(1 - x, 3); }
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var waNumber = String(BIZ.whatsapp || '').replace(/\D/g, '');
+  var root = document.documentElement;
 
   /* ---------- Language ---------- */
   function initialLang() {
@@ -118,7 +137,6 @@
     return copy[CFG.defaultLanguage] ? CFG.defaultLanguage : 'ar';
   }
   var lang = initialLang();
-
   function priceText(p, L) { var t = copy[L]; return p.price ? t.priceFrom + ' ' + num(p.price, L) + ' ' + pick(BIZ.currency, L) : t.priceRequest; }
 
   /* ---------- Rendering ---------- */
@@ -128,18 +146,14 @@
       var d = p[lang] || p.en;
       var media = p.image
         ? '<img src="' + esc(p.image) + '" alt="' + esc(d.name) + '" loading="lazy" decoding="async">'
-        : '<span class="ph-mark" aria-hidden="true"><svg viewBox="0 0 40 48"><path d="M3 47V20a17 17 0 0 1 34 0v27"/></svg></span><span class="ph-note">' + esc(t.photoSoon) + '</span>';
+        : '<div class="sweet-art" aria-hidden="true">' + (ART[p.art] || ART.cake) + '<small>' + esc(t.photoSoon) + '</small></div>';
       return '<li class="sweet" id="p-' + esc(p.id) + '">' +
-        '<figure class="arch' + (p.image ? '' : ' is-placeholder tone-' + esc(p.tone || 'cream')) + '">' + media + '</figure>' +
-        '<h3>' + esc(d.name) + '</h3>' +
-        '<p class="sweet-desc">' + esc(d.desc) + '</p>' +
-        '<p class="sweet-ingredients">' + esc(t.madeWith) + ' ' + esc(listJoin(d.ingredients, lang)) + '</p>' +
+        '<figure class="sweet-frame" style="margin:0">' + media + '</figure>' +
+        '<h3>' + esc(d.name) + '</h3><p class="sweet-desc">' + esc(d.desc) + '</p>' +
         '<div class="sweet-foot"><span class="sweet-price">' + esc(priceText(p, lang)) + '</span>' +
-        '<a class="btn btn-small sweet-order" href="#order" data-product="' + esc(p.id) + '" aria-label="' + esc(t.orderThis + ' — ' + d.name) + '">' + esc(t.orderThis) + '</a></div>' +
-        '</li>';
+        '<a class="btn btn-gold btn-small" href="#order" data-product="' + esc(p.id) + '" aria-label="' + esc(t.orderThis + ' — ' + d.name) + '">' + esc(t.orderThis) + '</a></div></li>';
     }).join('');
   }
-
   function renderProductOptions() {
     var sel = $('#product'), current = sel.value;
     sel.innerHTML = '<option value="">' + esc(copy[lang].choose) + '</option>' + PRODUCTS.map(function (p) {
@@ -147,7 +161,6 @@
     }).join('');
     sel.value = current;
   }
-
   function renderContact() {
     var t = copy[lang], items = [];
     function row(label, value) { items.push('<div><dt>' + esc(label) + '</dt><dd>' + value + '</dd></div>'); }
@@ -160,51 +173,48 @@
     if (!waNumber && !BIZ.phone && !BIZ.instagram) row(t.orderLabel, '<a href="#order">' + esc(t.orderViaForm) + '</a>');
     $('#contactGrid').innerHTML = items.join('');
   }
+  /* Statement words become individual spans so they can light up in turn */
+  var words = [];
+  function renderStatement() {
+    var el = $('#statement');
+    el.innerHTML = copy[lang].statement.split(/\s+/).map(function (w) { return '<span class="w">' + esc(w) + '</span>'; }).join(' ');
+    words = $$('.w', el);
+  }
 
   function applyLang(next) {
     if (!copy[next]) next = 'ar';
     lang = next;
-    var t = copy[lang], root = document.documentElement;
+    var t = copy[lang];
     root.lang = lang; root.dir = lang === 'en' ? 'ltr' : 'rtl';
-    $$('[data-i18n]').forEach(function (el) { var v = t[el.getAttribute('data-i18n')]; if (typeof v === 'string') el.textContent = v; });
+    $$('[data-i18n]').forEach(function (el) { var v = t[el.getAttribute('data-i18n')]; if (typeof v === 'string' && el.id !== 'statement') el.textContent = v; });
     $$('[data-i18n-placeholder]').forEach(function (el) { var v = t[el.getAttribute('data-i18n-placeholder')]; if (v) el.placeholder = v; });
-    $$('[data-i18n-alt]').forEach(function (el) { var v = t[el.getAttribute('data-i18n-alt')]; if (v) el.alt = v; });
     $$('[data-i18n-aria]').forEach(function (el) { var v = t[el.getAttribute('data-i18n-aria')]; if (v) el.setAttribute('aria-label', v); });
     $$('.lang-switch button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)); });
     document.title = t.brand + ' — ' + t.heroTitle.replace(/\.$/, '');
-    renderProducts(); renderProductOptions(); renderContact();
+    renderProducts(); renderProductOptions(); renderContact(); renderStatement();
     store.set('urnina-lang', lang);
-    requestDraw();
+    layoutGallery();
+    requestTick();
   }
 
   /* ---------- Header & mobile menu ---------- */
-  var header = $('.site-header'), nav = $('#primaryNav'), toggle = $('.menu-toggle'), waFloat = $('#waFloat'), hero = $('#hero');
+  var header = $('.site-header'), nav = $('#primaryNav'), toggle = $('.menu-toggle'), waFloat = $('#waFloat');
   function setMenu(open) { nav.classList.toggle('is-open', open); toggle.setAttribute('aria-expanded', String(open)); }
   toggle.addEventListener('click', function () { setMenu(toggle.getAttribute('aria-expanded') !== 'true'); });
   nav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
-  function updateChrome() {
-    header.classList.toggle('is-scrolled', window.scrollY > 8);
-    waFloat.classList.toggle('is-tucked', window.scrollY < hero.offsetHeight - window.innerHeight * 0.4);
-  }
   $$('.lang-switch button').forEach(function (b) { b.addEventListener('click', function () { applyLang(b.getAttribute('data-lang')); }); });
 
   /* ---------- Order form ---------- */
   var form = $('#orderForm'), status = $('#formStatus'), dateInput = $('#date');
   (function () { var d = new Date(); dateInput.min = d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()); })();
-
   document.addEventListener('click', function (e) {
     var a = e.target.closest('[data-product]');
     if (a) { $('#product').value = a.getAttribute('data-product'); clearError($('#product')); }
   });
   function clearError(el) { el.classList.remove('is-invalid'); el.removeAttribute('aria-invalid'); }
   $$('input, select, textarea', form).forEach(function (el) { el.addEventListener('input', function () { clearError(el); }); });
-
-  function fail(el, msg) {
-    el.classList.add('is-invalid'); el.setAttribute('aria-invalid', 'true'); el.focus();
-    status.textContent = msg; status.className = 'form-status wide is-error';
-    return false;
-  }
+  function fail(el, msg) { el.classList.add('is-invalid'); el.setAttribute('aria-invalid', 'true'); el.focus(); status.textContent = msg; status.className = 'form-status wide is-error'; return false; }
   function validate() {
     var t = copy[lang], q = parseInt($('#quantity').value, 10), digits = $('#phone').value.replace(/\D/g, '');
     if (!$('#product').value) return fail($('#product'), t.errProduct);
@@ -239,29 +249,77 @@
     var show = function () { status.textContent = t.notReady + '\n\n' + msg; };
     if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(msg).then(function () { status.textContent = t.copied; }, show); else show();
   });
-
   if (waNumber) { waFloat.href = 'https://wa.me/' + waNumber; waFloat.hidden = false; }
 
-  /* ---------- Hero: the arch opens, then the frames play ---------- */
-  var canvas = $('.hero-canvas'), ctx = canvas.getContext('2d'), archEl = $('.hero-arch'), heroCopy = $('.hero-copy');
-  var seq = null, frames = [], lastDrawn = -1, ticking = false;
-  var OPEN_END = 0.3;   // first 30% of the scroll opens the arch to full screen
+  /* ==========================================================
+     MOTION
+     ========================================================== */
+  var hero = $('#hero'), heroTitle = $('.hero-title'), chapters = $$('.chapter'), railFill = $('.rail-fill'), railDots = $$('.rail-dot'), cue = $('.scroll-cue');
+  var dust = $('.hero-dust'), dctx = dust.getContext('2d');
+  var framesCanvas = $('.hero-frames'), fctx = framesCanvas.getContext('2d');
+  var heroP = 0;
 
+  function sectionProgress(el) {
+    var dist = el.offsetHeight - window.innerHeight;
+    return dist > 0 ? clamp01(-el.getBoundingClientRect().top / dist) : 0;
+  }
+
+  /* --- Gold sugar dust (stand-in until the hero animation frames arrive) --- */
+  var motes = [], dustW = 0, dustH = 0, dpr = 1, dustRunning = false;
+  function sizeDust() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    dustW = dust.clientWidth; dustH = dust.clientHeight;
+    dust.width = Math.round(dustW * dpr); dust.height = Math.round(dustH * dpr);
+    var n = Math.round(Math.min(220, (dustW * dustH) / 7000));
+    motes = [];
+    for (var i = 0; i < n; i++) motes.push({ x: Math.random() * dustW, y: Math.random() * dustH, z: .25 + Math.random() * .75, r: .4 + Math.random() * 1.6, s: .1 + Math.random() * .35, ph: Math.random() * Math.PI * 2 });
+  }
+  function drawDust(time) {
+    if (!dustRunning) return;
+    var t = time / 1000;
+    dctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    dctx.clearRect(0, 0, dustW, dustH);
+    // warm light that brightens as the story unfolds
+    var g = dctx.createRadialGradient(dustW / 2, dustH * .46, 0, dustW / 2, dustH * .46, Math.max(dustW, dustH) * .55);
+    g.addColorStop(0, 'rgba(201,166,107,' + (.10 + heroP * .12) + ')');
+    g.addColorStop(1, 'rgba(201,166,107,0)');
+    dctx.fillStyle = g; dctx.fillRect(0, 0, dustW, dustH);
+    var lift = heroP * dustH * 1.2;
+    for (var i = 0; i < motes.length; i++) {
+      var m = motes[i];
+      m.y -= m.s * m.z; m.x += Math.sin(t * .5 + m.ph) * .12 * m.z;
+      if (m.y < -10) { m.y = dustH + 10; m.x = Math.random() * dustW; }
+      var y = ((m.y - lift * m.z) % (dustH + 20) + dustH + 20) % (dustH + 20) - 10;
+      var a = (.25 + .55 * m.z) * (.6 + .4 * Math.sin(t * 1.4 + m.ph));
+      dctx.beginPath();
+      dctx.fillStyle = 'rgba(231,203,148,' + a.toFixed(3) + ')';
+      dctx.arc(m.x, y, m.r * m.z * 1.4, 0, Math.PI * 2);
+      dctx.fill();
+    }
+    requestAnimationFrame(drawDust);
+  }
+  function setDust(on) {
+    if (on && !dustRunning && !reduceMotion) { dustRunning = true; requestAnimationFrame(drawDust); }
+    if (!on) dustRunning = false;
+  }
+
+  /* --- Scroll-driven frame sequence (your hero animation) --- */
+  var seq = null, frames = [];
   function chooseSequence() {
     var H = CFG.hero || {}, d = H.desktop && H.desktop.frames > 0 ? H.desktop : null, m = H.mobile && H.mobile.frames > 0 ? H.mobile : null;
     return (window.innerHeight > window.innerWidth ? (m || d) : (d || m));
   }
   function frameUrl(s, i) { var n = String(i + 1); while (n.length < (s.digits || 4)) n = '0' + n; return s.path + n + (s.ext || '.webp'); }
   function loadSequence(s) {
-    seq = s; frames = new Array(s.frames); lastDrawn = -1;
-    var order = [], step = 16;   // coarse-to-fine so the whole animation is roughly available early
+    seq = s; frames = new Array(s.frames);
+    var order = [], step = 16;
     while (step >= 1) { for (var i = 0; i < s.frames; i += step) if (order.indexOf(i) < 0) order.push(i); step = step / 2 | 0; }
     var idx = 0, inflight = 0;
     (function pump() {
       while (inflight < 6 && idx < order.length) {
         (function (k) {
           var img = new Image(); inflight++; img.decoding = 'async';
-          img.onload = function () { frames[k] = img; inflight--; if (lastDrawn < 0) requestDraw(); pump(); };
+          img.onload = function () { frames[k] = img; inflight--; requestTick(); pump(); };
           img.onerror = function () { inflight--; pump(); };
           img.src = frameUrl(s, k);
         })(order[idx++]);
@@ -273,65 +331,119 @@
     for (var d = 1; d < frames.length; d++) { if (frames[i - d]) return i - d; if (frames[i + d]) return i + d; }
     return -1;
   }
-  function sizeCanvas() {
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = Math.round(canvas.clientWidth * dpr); canvas.height = Math.round(canvas.clientHeight * dpr); lastDrawn = -1;
-  }
-  function drawInArch(img, x, y, w, h, rad) {
-    // cover-fit the frame into the (growing) arch window, clipped to its rounded top
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.save();
-    ctx.beginPath();
-    ctx.moveTo(x, y + h);
-    ctx.lineTo(x, y + rad);
-    ctx.arcTo(x, y, x + rad, y, rad);
-    ctx.lineTo(x + w - rad, y);
-    ctx.arcTo(x + w, y, x + w, y + rad, rad);
-    ctx.lineTo(x + w, y + h);
-    ctx.closePath();
-    ctx.clip();
-    var ir = img.naturalWidth / img.naturalHeight, dw, dh;
-    if (ir > w / h) { dh = h; dw = dh * ir; } else { dw = w; dh = dw / ir; }
-    ctx.drawImage(img, x + (w - dw) / 2, y + (h - dh) / 2, dw, dh);
-    ctx.restore();
-  }
-  function ease(x) { return x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2; }
-  function draw() {
-    ticking = false;
-    updateChrome();
-    if (!seq) return;
-    var dist = hero.offsetHeight - window.innerHeight;
-    var p = reduceMotion ? 1 : (dist > 0 ? Math.max(0, Math.min(1, -hero.getBoundingClientRect().top / dist)) : 0);
-    // arch → full screen
-    var o = ease(Math.min(1, p / OPEN_END)), k = 1 - o;
-    var stage = canvas.getBoundingClientRect(), r = archEl.getBoundingClientRect();
-    var dpr = canvas.width / (stage.width || 1);
-    var x = (r.left - stage.left) * k, y = (r.top - stage.top) * k;
-    var w = r.width + (stage.width - r.width) * o, h = r.height + (stage.height - r.height) * o;
-    var rad = Math.min(w, h) / 2 * k;
-    heroCopy.style.opacity = String(Math.max(0, 1 - o * 1.6));
-    heroCopy.style.visibility = o > .7 ? 'hidden' : 'visible';
+  var lastFrame = -1;
+  function drawFrame(p) {
     var i = nearestLoaded(Math.round(p * (seq.frames - 1)));
-    if (i >= 0) { drawInArch(frames[i], x * dpr, y * dpr, w * dpr, h * dpr, Math.min(rad, (r.width / 2) * k) * dpr); lastDrawn = i; }
+    if (i < 0 || i === lastFrame) return;
+    var img = frames[i], cw = framesCanvas.width, ch = framesCanvas.height, ir = img.naturalWidth / img.naturalHeight, w, h;
+    if (ir > cw / ch) { h = ch; w = h * ir; } else { w = cw; h = w / ir; }
+    fctx.drawImage(img, (cw - w) / 2, (ch - h) / 2, w, h);
+    lastFrame = i;
   }
-  function requestDraw() { if (!ticking) { ticking = true; window.requestAnimationFrame(draw); } }
+  function sizeFrames() {
+    var r = Math.min(window.devicePixelRatio || 1, 2);
+    framesCanvas.width = Math.round(framesCanvas.clientWidth * r); framesCanvas.height = Math.round(framesCanvas.clientHeight * r); lastFrame = -1;
+  }
+
+  /* --- Chapter drawings: each path draws itself in when its chapter appears --- */
+  var chapterArt = $('.chapter-art');
+  chapterArt.innerHTML = CHAPTER_ART.join('').replace(/<(path|circle)/g, '<$1 pathLength="1"');
+  var artSvgs = $$('svg', chapterArt);
+
+  /* --- Hero story: title → three chapters --- */
+  var CH = [0.2, 0.44, 0.68, 0.93];   // where chapters 1, 2, 3 begin and the story ends
+  function updateHero() {
+    heroP = reduceMotion ? 0 : sectionProgress(hero);
+    var p = heroP;
+    var out = ease(clamp01(p / CH[0]));
+    heroTitle.style.opacity = String(1 - out);
+    heroTitle.style.transform = 'scale(' + (1 + out * .18) + ')';
+    heroTitle.style.visibility = out >= .99 ? 'hidden' : 'visible';
+    var active = p < CH[0] ? 0 : p < CH[1] ? 1 : p < CH[2] ? 2 : p < CH[3] ? 3 : 0;
+    chapters.forEach(function (c, i) { c.classList.toggle('is-active', i + 1 === active); });
+    artSvgs.forEach(function (svg, i) { svg.classList.toggle('is-active', i + 1 === active); });
+    railFill.style.height = (clamp01(p / CH[3]) * 100) + '%';
+    railDots.forEach(function (d, i) { d.classList.toggle('is-on', p >= (i === 0 ? 0 : CH[i - 1]) && p < CH[3] + .05); });
+    cue.style.opacity = p > .02 ? '0' : '1';
+    if (seq) drawFrame(p);
+    var inView = hero.getBoundingClientRect().bottom > 0;
+    setDust(!seq && inView);
+  }
+
+  /* --- Statement: words light up as you read down --- */
+  var statement = $('.statement');
+  function updateStatement() {
+    if (!words.length) return;
+    var r = statement.getBoundingClientRect(), vh = window.innerHeight;
+    var p = reduceMotion ? 1 : clamp01((vh * .85 - r.top) / (r.height * .75));
+    var lit = Math.round(p * words.length);
+    for (var i = 0; i < words.length; i++) words[i].classList.toggle('is-lit', i < lit);
+  }
+
+  /* --- Collection: vertical scroll moves the gallery sideways (desktop) --- */
+  var collection = $('#collection'), track = $('.collection-track'), viewport = $('.collection-viewport'), cprog = $('.collection-progress span');
+  var galleryDist = 0, galleryOn = false;
+  function layoutGallery() {
+    galleryOn = !reduceMotion && window.innerWidth > 700;
+    if (!galleryOn) { collection.style.height = ''; track.style.transform = ''; return; }
+    galleryDist = Math.max(0, track.scrollWidth - viewport.clientWidth);
+    collection.style.height = (window.innerHeight + galleryDist) + 'px';
+  }
+  function updateGallery() {
+    if (!galleryOn) return;
+    var p = sectionProgress(collection);
+    var x = p * galleryDist * (root.dir === 'rtl' ? 1 : -1);
+    track.style.transform = 'translate3d(' + x.toFixed(1) + 'px,0,0)';
+    cprog.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+  }
+
+  /* --- One reveal per section heading --- */
+  var revealIO = ('IntersectionObserver' in window && !reduceMotion) ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); revealIO.unobserve(en.target); } });
+  }, { rootMargin: '0px 0px -12% 0px' }) : null;
+  $$('.how h2, .steps, .order-head, .contact h2, .contact-list').forEach(function (el) {
+    if (revealIO) { el.classList.add('reveal'); revealIO.observe(el); }
+  });
+
+  /* --- Chrome --- */
+  function updateChrome() {
+    header.classList.toggle('is-scrolled', window.scrollY > 40);
+    waFloat.classList.toggle('is-tucked', hero.getBoundingClientRect().bottom > window.innerHeight * .3);
+  }
+
+  /* --- Frame loop --- */
+  var ticking = false;
+  function tick() { ticking = false; updateChrome(); updateHero(); updateStatement(); updateGallery(); }
+  function requestTick() { if (!ticking) { ticking = true; requestAnimationFrame(tick); } }
+
   function initHero() {
     var s = chooseSequence();
     hero.classList.toggle('has-frames', !!s);
-    if (!s) { seq = null; return; }
-    sizeCanvas();
-    if (!seq || seq.path !== s.path) loadSequence(s);
-    requestDraw();
+    if (s) { sizeFrames(); if (!seq || seq.path !== s.path) loadSequence(s); }
+    else { seq = null; sizeDust(); }
   }
 
-  window.addEventListener('scroll', requestDraw, { passive: true });
+  window.addEventListener('scroll', requestTick, { passive: true });
   var resizeTimer;
-  window.addEventListener('resize', function () { clearTimeout(resizeTimer); resizeTimer = setTimeout(initHero, 150); });
+  window.addEventListener('resize', function () { clearTimeout(resizeTimer); resizeTimer = setTimeout(function () { initHero(); layoutGallery(); requestTick(); }, 150); });
 
   /* ---------- Start ---------- */
   $('#year').textContent = new Date().getFullYear();
   applyLang(lang);
   initHero();
-  updateChrome();
+  requestTick();
+
+  // Opening sequence: let the arch draw, then lift the curtain once fonts are ready
+  var started = Date.now();
+  function lift() { root.classList.remove('is-loading'); layoutGallery(); requestTick(); }
+  if (reduceMotion) lift();
+  else {
+    var ready = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+    Promise.race([ready, new Promise(function (r) { setTimeout(r, 2500); })]).then(function () {
+      setTimeout(lift, Math.max(0, 1500 - (Date.now() - started)));
+    });
+  }
+  window.addEventListener('load', function () { layoutGallery(); requestTick(); });
+
   window.URNINA = { applyLang: applyLang };
 })();

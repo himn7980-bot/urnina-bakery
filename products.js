@@ -4,15 +4,15 @@
    built from this list, so add / edit / remove products only here.
 
    image: path to a photo (portrait 4:5, at least 1000x1250px, no text on the photo),
-          or null to show the designed placeholder until a photo exists.
+          or null to show the gold line drawing until a photo exists.
    price: number in IQD (e.g. 25000) to show "from 25,000 IQD",
           or null to show "Price on request".
-   tone:  placeholder colour — berry, walnut, pistachio, mango, banana,
-          coffee, cream, carrot.
+   art:   gold line drawing shown until a photo exists — cake, crepe or tart.
+   tone:  (unused in the current design)
    ========================================================== */
 window.URNINA_PRODUCTS = [
   {
-    id: 'berry-crepe-gift', image: null, price: null, tone: 'berry',
+    id: 'berry-crepe-gift', art: 'crepe', image: null, price: null, tone: 'berry',
     en: { tag: 'LITTLE BITES · BIG JOY', name: 'Berry Crepe Gift',
           desc: 'A hand-tied strawberry crepe dessert made for gifting, sharing, and small celebrations.',
           ingredients: 'Strawberry crepe · Vanilla cream · Fresh strawberry' },
@@ -24,7 +24,7 @@ window.URNINA_PRODUCTS = [
           ingredients: 'كريب فراولة · كريمة فانيلا · فراولة طازجة' }
   },
   {
-    id: 'walnut-cake', image: null, price: null, tone: 'walnut',
+    id: 'walnut-cake', art: 'cake', image: null, price: null, tone: 'walnut',
     en: { tag: 'MORE THAN SWEETS', name: 'Walnut Cake',
           desc: 'A warm, softly baked cake finished with a generous layer of chopped walnuts.',
           ingredients: 'Soft cake · Walnut · Caramelized nut topping' },
@@ -36,7 +36,7 @@ window.URNINA_PRODUCTS = [
           ingredients: 'كيك طري · جوز · طبقة مكسرات مكرملة' }
   },
   {
-    id: 'traditional-tartlets', image: null, price: null, tone: 'pistachio',
+    id: 'traditional-tartlets', art: 'tart', image: null, price: null, tone: 'pistachio',
     en: { tag: 'TRADITIONAL FLAVORS · MODERN MOMENTS', name: 'Traditional Tartlets',
           desc: 'Delicate individual tartlets with a traditional filling and pistachio finish.',
           ingredients: 'Crisp tart shell · Traditional filling · Pistachio' },
@@ -48,7 +48,7 @@ window.URNINA_PRODUCTS = [
           ingredients: 'قشرة تارت مقرمشة · حشوة تقليدية · فستق' }
   },
   {
-    id: 'mango-crepe', image: null, price: null, tone: 'mango',
+    id: 'mango-crepe', art: 'crepe', image: null, price: null, tone: 'mango',
     en: { tag: 'FRESH · TROPICAL · BRIGHT', name: 'Mango Crepe',
           desc: 'A bright mango crepe dessert with vanilla cream and ripe mango.',
           ingredients: 'Mango crepe · Vanilla cream · Fresh mango' },
@@ -60,7 +60,7 @@ window.URNINA_PRODUCTS = [
           ingredients: 'كريب مانجو · كريمة فانيلا · مانجو طازجة' }
   },
   {
-    id: 'banana-crepe', image: null, price: null, tone: 'banana',
+    id: 'banana-crepe', art: 'crepe', image: null, price: null, tone: 'banana',
     en: { tag: 'SOFT · SWEET · COMFORTING', name: 'Banana Crepe',
           desc: 'A soft banana crepe dessert with vanilla cream, banana and crisp wafer.',
           ingredients: 'Banana crepe · Vanilla cream · Fresh banana · Wafer' },
@@ -72,7 +72,7 @@ window.URNINA_PRODUCTS = [
           ingredients: 'كريب موز · كريمة فانيلا · موز طازج · ويفر' }
   },
   {
-    id: 'coffee-crepe', image: null, price: null, tone: 'coffee',
+    id: 'coffee-crepe', art: 'crepe', image: null, price: null, tone: 'coffee',
     en: { tag: 'RICH · WARM · AROMATIC', name: 'Coffee Crepe',
           desc: 'A rich coffee crepe dessert with cream, cocoa and roasted coffee notes.',
           ingredients: 'Coffee crepe · Cream · Cocoa · Coffee' },
@@ -84,7 +84,7 @@ window.URNINA_PRODUCTS = [
           ingredients: 'كريب قهوة · كريمة · كاكاو · قهوة' }
   },
   {
-    id: 'mango-cheesecake', image: 'assets/mango-cheesecake.webp', price: null, tone: 'mango',
+    id: 'mango-cheesecake', art: 'cake', image: 'assets/mango-cheesecake.webp', price: null, tone: 'mango',
     en: { tag: 'FRESH · CREAMY · TROPICAL', name: 'Mango Cheesecake',
           desc: 'Creamy mango cheesecake over a crumbly biscuit base, finished with a bright mango layer and fresh mango.',
           ingredients: 'Biscuit crust · Cream cheese filling · Mango layer · Fresh mango' },
@@ -96,7 +96,7 @@ window.URNINA_PRODUCTS = [
           ingredients: 'قاعدة بسكويت · حشوة جبن كريمي · طبقة مانجو · مانجو طازجة' }
   },
   {
-    id: 'carrot-cake', image: 'assets/carrot-cake-photo.webp', price: null, tone: 'carrot',
+    id: 'carrot-cake', art: 'cake', image: 'assets/carrot-cake-photo.webp', price: null, tone: 'carrot',
     en: { tag: 'WARM · HOMEMADE · CLASSIC', name: 'Carrot Cake',
           desc: 'A softly baked carrot cake finished with a delicate dusting of powdered sugar.',
           ingredients: 'Carrot cake · Powdered sugar' },

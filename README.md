@@ -2,7 +2,9 @@
 
 Single-page bakery website — العربية / فارسی / English with full RTL, WhatsApp ordering, and a scroll-driven hero animation.
 
-**Design idea: the arch** — a Karbala iwan and a patisserie cake dome share the same shape. Every sweet sits in an arch, the logo is an arch, and the hero arch opens to full screen as you scroll. Colours come from Iraqi sweet flavours: rosewater `#F2DCD8`, milk `#FFF8F4`, date `#3B1F17`, pistachio `#56662B` / `#C9D59A`. Type: Lalezar (headings) and Vazirmatn (text), self-hosted in `assets/fonts/`.
+**Design:** dark luxury — ganache `#130B08`, cacao `#1F140F`, gold `#C9A66B` / `#E7CB94`, cream `#F3E7D9`. Reem Kufi (Arabic/Persian headings), Bodoni Moda (English headings), Vazirmatn (text), all self-hosted in `assets/fonts/`.
+
+**Motion:** an opening sequence (the arch draws, the name rises), a pinned hero told in four chapters, a statement that lights up word by word, and a collection that scrolls sideways (a swipe carousel on phones). Everything respects *reduce motion*.
 
 ## Files
 
@@ -20,7 +22,7 @@ Single-page bakery website — العربية / فارسی / English with full R
 1. **WhatsApp** — put the business number in `config.js` → `whatsapp: '9647XXXXXXXXX'` (digits only).
    The order form then opens WhatsApp with the full order written in the customer's language, and a floating WhatsApp button appears.
 2. **Phone / Instagram / hours** — fill in `config.js`. Empty values are hidden, nothing says "to be added".
-3. **Photos** — in `products.js` set `image:` per product. Photos are shown in a **portrait 4:5 arch**, so shoot portrait (at least **1000×1250 px**), keep the sweet centred with room above it for the curve, and **no text or logo on the photo**. Products without a photo show a coloured placeholder arch.
+3. **Photos** — in `products.js` set `image:` per product. Photos sit in a **portrait 4:5 arch** on a dark page: shoot portrait (at least **1000×1250 px**), on a dark or warm background, sweet centred with room above it for the curve, **no text or logo on the photo**. Products without a photo show a gold line drawing.
 4. **Prices** (optional) — `price: 25000` shows "From 25,000 IQD"; `null` shows "Price on request".
 
 ## Hero scroll animation
@@ -40,9 +42,18 @@ The hero plays an image sequence that follows the scroll (Apple-style). Until fr
 Then set `frames:` in `config.js` to the number of frames for each.
 
 **How it plays**
-- At the top of the page the animation sits **inside the hero arch** (a portrait window). Over the first **30 %** of the scroll the arch grows until it fills the screen; the headline fades out as it grows.
-- The frame is always **centred and cover-fitted** to the arch, so keep the subject in the **centre** of the frame, especially in the opening frames — the edges are cropped while the arch is narrow.
-- Frames advance across the whole scroll, so the opening ~30 % is seen through the arch and the rest full screen. A slow push-in or a reveal works well for the opening.
+The hero is pinned while the visitor scrolls through it (about 4 screens), and the frames follow the scroll. The text on top follows these beats, so time your animation to them:
+
+| Scroll through hero | On screen | Suggested animation beat |
+|---|---|---|
+| 0 – 20 % | Name + "More than sweets" (fades and grows out) | Dark, calm opening — light rising, dust, a slow push-in |
+| 20 – 44 % | Chapter 1 — *Simple ingredients* | Ingredients: butter, cream, fruit, nuts |
+| 44 – 68 % | Chapter 2 — *Made by hand* | Hands folding a crepe, layering a cake |
+| 68 – 93 % | Chapter 3 — *Finished with care* | The finished sweet: glaze, sugar dust, ribbon |
+| 93 – 100 % | (text clears) | Hold on the hero shot |
+
+- Text sits at the **bottom-start corner** (bottom-right in Arabic/Persian, bottom-left in English), so keep that corner darker and less busy.
+- Until frames are added, gold sugar dust and gold line drawings stand in for the animation.
 - Only desktop frames? Mobile uses them too (cropped to fill). Only mobile frames? Same in reverse.
 - Convert an MP4 to frames with ffmpeg:
   `ffmpeg -i hero.mp4 -vf "fps=24,scale=1600:-2" -c:v libwebp -quality 70 assets/hero/desktop/frame_%04d.webp`
